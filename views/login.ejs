@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>RoomierCord - Login</title>
+</head>
+<body class="others">
+    <div class="container-fluid m-0 p-0 full">
+        <div id="home-page" class="full-height">
+            <!-- Navigation bar -->
+            <div class="navbar">
+                <img src="img/roomiercordYELLOW.png" alt="" class="logo" />
+                <nav>
+                  <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">How it Works</a></li>
+                    <li><a href="/aboutus">About Us</a></li>
+                    <li><a class="current" href="/login">Login</a></li>
+                  </ul>
+                </nav>
+          
+                <a href="/register">
+                  <button type="button" class="button btn btn-lg sign-up">
+                    Sign Up
+                  </button>
+                </a>
+              </div>
+    
+            <div class="loginbox">
+                <h1>LOGIN</h1>
+                <form action="/login" method="POST">
+                    <div class="txt_field">
+                        <input type="text" placeholder="Email" required id="xyz" name="username">
+                    </div>
+                    <div class="txt_field">
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="pass">Forgot Password?</div>
+                    <input type="submit" value="LOGIN">
+                    <div class="signup_link">
+                        Don't have an account? <a href="/register">Create one here.</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<!-- <h1>
+    Login Page
+</h1>
+<form action="/login" method="POST">
+    <label for="username">UserName</label>
+    <input type="text" placeholder="username" id="xyz" name="username">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+    <button>Login</button>
+</form>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/register">SignUp</a></li>
+</ul> -->

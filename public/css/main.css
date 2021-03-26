@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#home #home-page {
+    background-image: url("../img/gradient8.png");
+    background-position: bottom;
+    color: white;
+    box-sizing: border-box;
+}
+
+.others #home-page {
+    background-image: url("../img/gradient9.png");
+    background-position: bottom;
+    color: white;
+    box-sizing: border-box;
+}
+
+.full {
+    background-image: url("../img/uWaterlooCampus.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
+.navbar {
+    height: 12%;
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
+    padding-right: 3%;
+}
+
+.logo {
+    width: 20%;
+    height: 20%;
+    margin-top: 0.5%;
+}
+
+.btn {
+    background-color: #ff9100;
+    color: white;
+    font-size: 100%;
+    font-weight: 400;
+}
+
+.sign-up {
+    margin-left: 40px;
+    margin-top: 0%;
+}
+
+.row {
+    display: flex;
+    height: 50%;
+    align-items: center;
+}
+
+.col {
+    flex-basis: 50%;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+    margin-top: 1%;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 100%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    transition: all ease-in-out 250ms;
+}
+
+nav ul li a:after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0.3em;
+    width: 0%;
+    background-color: #ff9100;
+    bottom: 33%;
+    transition: all ease-in-out 250ms;
+}
+
+nav ul li a:hover:after {
+    width: 2%;
+}
+
+nav ul li a:hover {
+    color: #ff9100;
+    text-decoration: none;
+}
+
+.current {
+    color: #ff9100;
+}
+
+.current:after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0.3em;
+    width: 2%;
+    background-color: #ff9100;
+    bottom: 33%;
+}
+
+#banner {
+    text-align: left;
+    color: #fff;
+    padding-top: 9%;
+    padding-left: 9%;
+}
+
+#banner-about-us {
+    text-align: left;
+    color: #fff;
+    padding-top: 2%;
+    margin-right: 33%;
+}
+
+.promo-title {
+    font-weight: 600;
+    font-size: 330%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.get-started {
+    align-content: flex-start;
+}
+
+#how-it-works {
+    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84));
+}
+
+.HIW-title {
+    font-weight: 600;
+    font-size: 280%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(70, 70, 70, 255);
+    padding-top: 3%;
+    text-align: center;
+}
+
+.card {
+    margin-bottom: 50px;
+    border-radius: 10px;
+    margin: 1% 1%;
+}
+
+#cardrow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#cardrow-about {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.card-header {
+    color: white;
+    background: #ff9100 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+    opacity: 1;
+    text-align: center;
+}
+
+.card-header:first-child {
+    color: white;
+    background: #ff9100 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.contact-cards {
+    margin-top: 5%;
+}
+
+.card-body {
+    font-size: 120%;
+    box-shadow: 0px 3px 10px #00000029;
+}
+
+#card-about {
+    font-size: 120%;
+    color: rgba(70, 70, 70, 255);
+    box-shadow: 0px 3px 10px #00000029;
+    text-align: center;
+}
+
+#card1 {
+    margin-left: 5%;
+}
+
+#card2 {
+    max-width: 40%;
+    height: auto;
+}
+
+#card3 {
+    max-width: 30%;
+    height: auto;
+}
+
+#card4 {
+    max-width: 40%;
+    height: auto;
+}
+
+.tos {
+    background: dimgray 0% 0% no-repeat padding-box !important;
+}
+
+#tos-card {
+    background-color: gray;
+    margin-left: 5%;
+}
+
+.card-header h1 {
+    font-size: 120%;
+}
+
+#bottom-space {
+    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84));
+}
+
+@media screen and (max-width: 1000px) {
+    .card {
+        width: 40%;
+    }
+}
+
+input {
+    text-align: center;
+}
+
+.loginbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45vmin;
+    background: white;
+    color: dimgrey;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px white;
+}
+
+.loginbox h1 {
+    padding: 4vmin 0 1vmin 0;
+    color: black;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
+
+.loginbox form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txt_field {
+    position: relative;
+    border: 1px solid gray;
+    margin: 20px 0;
+}
+
+.txt_field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    color: dimgray;
+}
+
+::placeholder {
+    color: rgb(167, 167, 167);
+    transform: translateY(-10%);
+    font-size: 16px;
+}
+
+.pass {
+    margin: -5px 0 20px 5px;
+    color: gray;
+    cursor: pointer;
+    text-align: center;
+}
+
+.pass:hover {
+    text-decoration: underline;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #ff9100;
+    border-radius: 50px;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+#register input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #ff9100;
+    border-radius: 50px;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 3vmin;
+}
+
+input[type="submit"]:hover {
+    border-color: orangered;
+    transition: 500ms;
+}
+
+.signup_link {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: dimgray;
+}
+
+.signup_link a {
+    color: #2691d9;
+    text-decoration: none;
+}
+
+.signup_link a:hover {
+    text-decoration: underline;
+}
+
+.select {
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid gray;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+}
+
+.select:focus, .select:hover {
+    outline: none;
+    border: 1px solid dimgray;
+}
+
+.select, .select-selected {
+    padding: 8px 80px;
+    border: 1px solid dimgray;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+}
+
+.select {
+    color: rgb(167, 167, 167);
+}
+
+.select-selected {
+    color: dimgray;
+}
+
+.slidecontainer {
+    width: 30%;
+    padding: 5px 20px 20px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.slidecontainer .slider {
+    width: 100%;
+    display: flex;
+    margin-top: 0;
+    margin-right: 15px;
+    align-items: center;
+}
+
+.slidecontainer .slider::-webkit-slider-thumb {
+    cursor: pointer;
+    z-index: 3;
+    position: relative;
+}
+
+#SelectValue {
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+#SelectValue2 {
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+
+#SelectValue3 {
+    position: absolute;
+    top: 0;
+    text-align: center;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>RoomierCord - Register</title>
+</head>
+
+<body class="others" id="register">
+    <div class="container-fluid m-0 p-0 full">
+        <div id="home-page" class="full-height">
+            <!-- Navigation bar -->
+            <div class="navbar">
+                <img src="img/roomiercordYELLOW.png" alt="" class="logo" />
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">How it Works</a></li>
+                        <li><a href="/aboutus">About Us</a></li>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                </nav>
+
+                <a href="/register">
+                    <button type="button" class="button btn btn-lg sign-up">
+                        Sign Up
+                    </button>
+                </a>
+            </div>
+            <!-- Login Box -->
+            <div class="loginbox">
+                <h1>Create a New Account</h1>
+                <form action="/register" method="POST">
+                    <div class="txt_field">
+                        <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+                    </div>
+                    <!-- <div class="txt_field">
+                        <input type="text" placeholder="University" name="university" id="university" required>
+                    </div> -->
+                    <select class="select" name="university" id = "university">
+                        <option disabled selected>Select a University</option>
+                        <option value ="Carleton">Carleton University</option>
+                        <option value ="University of Ottawa">University of Ottawa</option>
+                        <option value ="McMaster University">McMaster University</option>
+                        <option value ="University of Toronto">University of Toronto</option>
+                        <option value ="University of Waterloo">University of Waterloo</option>
+                        <option value ="Queen's University">Queen's University</option>
+                      </select>
+                    <div class="txt_field">
+                        <input type="text" placeholder="Email" id="username" name="username" required>
+                    </div>
+                    <div class="txt_field">
+                        <input type="password" placeholder="Password" id="password" name="password" required>
+                    </div>
+                    <input type="submit" value="CREATE ACCOUNT">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+<!-- <h1>
+    SignUp Page
+</h1>
+<form action="/register" method="POST">
+    <label for="username">UserName</label>
+    <input type="text" id="username" name="username">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+    <label for="university">University-</label>
+    <input type="text" name="university" id="university"> -->
+
+<!-- <input list="university" name="university">
+        <datalist id="univerity">
+            <option value="Carleton University">
+            <option value="University of Ottawa">
+            <option value="Waterloo University">
+            <option value="Queens Univerity">
+        </datalist> -->
+
+<!-- <button>Submit</button>
+
+</form>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/login">login</a></li>
+</ul> -->
