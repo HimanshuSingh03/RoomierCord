@@ -395,8 +395,16 @@ input[type="submit"]:hover {
     color: dimgray;
 }
 
+
+.slidebox {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
 .slidecontainer {
-    width: 30%;
+    width: 100%;
     padding: 5px 20px 20px 20px;
     position: relative;
     display: flex;
@@ -432,4 +440,26 @@ input[type="submit"]:hover {
     position: absolute;
     top: 0;
     text-align: center;
+}
+
+/* Edit attributes cards styling */
+
+#your-attributes {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#editattributes {
+    margin-top: -5%;
+}
+
+#attributes-card1 {
+    margin-left: 5%;
+    margin-right: 5%;
+    width:30%;
+}
+
+#attributes-card2 {
+    width: 50%;
+    height: auto;
 }
