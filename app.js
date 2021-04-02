@@ -205,21 +205,23 @@ function match(currentuser, dblength, gender, pets, partying, smoking, cooking, 
     var matchscore = 0;
     var score;
 
+    
 
-
-    // for (let i = 0; i < dblength; i++){
+    for (let i = 0; i < dblength; i++){
         
-    //     //gender
-    //     if(gender == ){
-    //         score += 1.0;
-    //     } else {
-    //         score += 0.1;
-    //     }
-    //     matchscore += score*wgender;
+        var cursor = db.collection('users').find().toArray( function(err, spot) {
+            console.log(spot[i].partying);
+        });
 
+        // //gender
+        // if(gender == ){
+        //     score += 1.0;
+        // } else {
+        //     score += 0.1;
+        // }
+        // matchscore += score*wgender;
 
-
-    // }//end of loop
+    }//end of loop
     
 
 
