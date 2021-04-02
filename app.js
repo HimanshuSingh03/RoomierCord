@@ -1,3 +1,4 @@
+const { aggregate } = require('./models/user');
 const user = require('./models/user');
 
 const express = require('express'),
@@ -154,6 +155,9 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
             universityname: req.user.university
         })
     })
+
+    match(req.user.username, 4, 0, 0, 0, 0, 0, 0);
+
 })
 app.post("/mainpage", (req, res) => {
 })
@@ -181,3 +185,42 @@ app.listen(process.env.PORT || 3000, function (err) {
     }
 
 });
+
+
+
+
+
+function match(currentuser, dblength, gender, pets, partying, smoking, cooking, cleanliness) {
+    
+    console.log(currentuser);
+    
+    //weights
+    const wgender = 0.20;
+    const wpets = 0.10;
+    const wpartying = 0.20;
+    const wsmoking = 0.20;
+    const wcooking = 0.10;
+    const wcleanliness = 0.20;
+
+    var matchscore = 0;
+    var score;
+
+
+
+    // for (let i = 0; i < dblength; i++){
+        
+    //     //gender
+    //     if(gender == ){
+    //         score += 1.0;
+    //     } else {
+    //         score += 0.1;
+    //     }
+    //     matchscore += score*wgender;
+
+
+
+    // }//end of loop
+    
+
+
+}
