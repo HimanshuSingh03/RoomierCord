@@ -103,6 +103,8 @@ app.post("/attributes", (req, res) => {
         pets: req.body.pets,
         budget: req.body.budget,
         bio: req.body.bio,
+        age: req.body.age,
+        maxdistance: req.body.maxdistance,
 
     }), temppassword, function (err, user) {
 
@@ -131,7 +133,9 @@ app.post('/editattributes', isLoggedIn, (req, res) => {
                 smoker: req.body.pets,
                 gender: req.body.gender,
                 budget: req.body.budget,
-                bio: req.body.bio
+                bio: req.body.bio,
+                age: req.body.age,
+                maxdistance: req.body.maxdistance
             }
         },
     )

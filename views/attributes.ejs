@@ -13,6 +13,18 @@
     </h1>
     <form action="/attributes" method="POST">
 
+        <!-- Slider for age -->
+        <div>
+            <label for="age">Age</label>
+            <div class="slidecontainer">
+                <input type="range" id="slider4" name="age" minlength="1" maxlength="10" value="18" max="30" min="18"
+                    class="slider" mousemove="range(this.value)" onChange="range(this.value)">
+                <div id="selector4">
+                    <div id="SelectValue4"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Slider for Partying -->
         <div>
             <label for="partying">Partying</label>
@@ -45,6 +57,18 @@
                     class="slider" mousemove="range(this.value)" onChange="range(this.value)">
                 <div id="selector3">
                     <div id="SelectValue3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider for max distance -->
+        <div>
+            <label for="maxdistance">Max. Distance from School</label>
+            <div class="slidecontainer">
+                <input type="range" id="slider5" name="maxdistance" minlength="1" maxlength="10" value="0" max="25" min="0"
+                    class="slider" mousemove="range(this.value)" onChange="range(this.value)">
+                <div id="selector5">
+                    <div id="SelectValue5"></div>
                 </div>
             </div>
         </div>
