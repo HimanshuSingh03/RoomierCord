@@ -156,7 +156,7 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
         })
     })
 
-    match(req.user.username, 4, 0, 0, 0, 0, 0, 0);
+    match(req.user.username, 5, req.user.gender, req.user.pets, req.user.partying, req.user.smoking, req.user.cleanliness);
 
 })
 app.post("/mainpage", (req, res) => {
@@ -190,39 +190,72 @@ app.listen(process.env.PORT || 3000, function (err) {
 
 
 
-function match(currentuser, dblength, gender, pets, partying, smoking, cooking, cleanliness) {
+function match(currentuser, dblength, gender, pets, partying, smoking, cleanliness) {
     
     console.log(currentuser);
     
     //weights
-    const wgender = 0.20;
+    const wgender = 0.25;
     const wpets = 0.10;
-    const wpartying = 0.20;
-    const wsmoking = 0.20;
-    const wcooking = 0.10;
-    const wcleanliness = 0.20;
+    const wpartying = 0.22;
+    const wsmoking = 0.25;
+    const wcleanliness = 0.18;
 
     var matchscore = 0;
-    var score;
+    var score = 0;
+    var allscores = [];
 
     
 
-    for (let i = 0; i < dblength; i++){
+    
         
-        var cursor = db.collection('users').find().toArray( function(err, spot) {
-            console.log(spot[i].partying);
-        });
+    var cursor = db.collection('users').find().toArray( function(err, spot) {
 
-        // //gender
-        // if(gender == ){
-        //     score += 1.0;
-        // } else {
-        //     score += 0.1;
-        // }
-        // matchscore += score*wgender;
+        
+        for (let i = 0; i <= dblength; i++){
+            
+            //gender
+            if(gender == (spot[i].gender)){
+                score += 1.0;
+            } else {
+                score += 0.1;
+            }
+            matchscore += score*wgender;
 
-    }//end of loop
-    
+            //smoking
+            if(smoking == (spot[i].smoking)){
+                score += 1.0;
+            } else {
+                score += 0.1;
+            }
+            matchscore += score*wsmoking;
+        
+            
+            //pets
+            if(pets == (spot[i].pets)){
+                score += 1.0;
+            } else {
+                score += 0.1;
+            }
+            matchscore += score*wpets;
 
+
+            //partying
+            score = 1.0 - (Math.abs(partying - spot[i].partying))/10;
+            matchscore += score*wpartying;
+
+            //cleanliness
+            score = 1.0 - (Math.abs(cleanliness - spot[i].cleanliness))/10;
+            matchscore += score*wcleanliness;
+
+            console.log(matchscore);
+            //allscores.push(matchscore);
+        }//end of loop
+
+        
+    });
+
+//console.log(allscores);
 
 }
+
