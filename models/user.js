@@ -14,6 +14,8 @@ const UserSchema = new mongoose.Schema({
     pets:String,
     budget:String,
     bio:String,
+    age:Number,
+    maxdistance:Number,
 
 }) ;
 UserSchema.plugin(passportLocalMongoose);

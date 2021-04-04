@@ -99,11 +99,13 @@ app.post("/attributes", (req, res) => {
         partying: req.body.partying,
         cleanliness: req.body.cleanliness,
         cooking: req.body.cooking,
-        smoker: req.body.pets,
+        smoker: req.body.smoker,
         gender: req.body.gender,
         pets: req.body.pets,
         budget: req.body.budget,
         bio: req.body.bio,
+        age: req.body.age,
+        maxdistance: req.body.maxdistance,
 
     }), temppassword, function (err, user) {
 
@@ -129,10 +131,12 @@ app.post('/editattributes', isLoggedIn, (req, res) => {
                 cleanliness: req.body.cleanliness,
                 cooking: req.body.cooking,
                 pets: req.body.pets,
-                smoker: req.body.pets,
+                smoker: req.body.smoker,
                 gender: req.body.gender,
                 budget: req.body.budget,
-                bio: req.body.bio
+                bio: req.body.bio,
+                age: req.body.age,
+                maxdistance: req.body.maxdistance
             }
         },
     )
