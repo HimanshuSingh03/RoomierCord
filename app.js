@@ -48,6 +48,7 @@ var tempuniversity;
 
 var currentusername;
 
+console.log(db.collection('users').countDocuments());
 
 
 
@@ -248,14 +249,14 @@ function match(currentuser, dblength, gender, pets, partying, smoking, cleanline
             score = 1.0 - (Math.abs(cleanliness - spot[i].cleanliness))/10;
             matchscore += score*wcleanliness;
 
-            console.log(matchscore);
-            //allscores.push(matchscore);
+            //console.log(matchscore);
+            allscores.push(matchscore);
         }//end of loop
 
-        
+        console.log(allscores);
     });
 
-//console.log(allscores);
+
 
 }
 
