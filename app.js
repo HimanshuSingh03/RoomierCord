@@ -48,7 +48,7 @@ var tempuniversity;
 
 var currentusername;
 
-console.log(db.collection('users').countDocuments());
+
 
 
 
@@ -161,9 +161,10 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
         })
     })
 
-    match(req.user.username, 5, req.user.gender, req.user.pets, req.user.partying, req.user.smoking, req.user.cleanliness);
 
-})
+    match(req.user.username, req.user.gender, req.user.pets, req.user.partying, req.user.smoking, req.user.cleanliness);
+
+});
 app.post("/mainpage", (req, res) => {
 })
 
@@ -195,9 +196,8 @@ app.listen(process.env.PORT || 3000, function (err) {
 
 
 
-function match(currentuser, dblength, gender, pets, partying, smoking, cleanliness) {
+function match(currentuser, gender, pets, partying, smoking, cleanliness) {
     
-    console.log(currentuser);
     
     //weights
     const wgender = 0.25;
@@ -210,14 +210,13 @@ function match(currentuser, dblength, gender, pets, partying, smoking, cleanline
     var score = 0;
     var allscores = [];
 
-    
-
-    
         
-    var cursor = db.collection('users').find().toArray( function(err, spot) {
+    const cursor = db.collection('users').find().toArray(function(err, spot) {
 
-        
-        for (let i = 0; i <= dblength; i++){
+        console.log(currentuser);
+        var dblength = spot.length; 
+
+        for (let i = 0; i < dblength; i++) {
             
             //gender
             if(gender == (spot[i].gender)){
@@ -225,7 +224,9 @@ function match(currentuser, dblength, gender, pets, partying, smoking, cleanline
             } else {
                 score += 0.1;
             }
-            matchscore += score*wgender;
+            matchscore += (score*wgender);
+            score = 0;
+
 
             //smoking
             if(smoking == (spot[i].smoking)){
@@ -233,7 +234,8 @@ function match(currentuser, dblength, gender, pets, partying, smoking, cleanline
             } else {
                 score += 0.1;
             }
-            matchscore += score*wsmoking;
+            matchscore += (score*wsmoking);
+            score = 0;
         
             
             //pets
@@ -242,22 +244,30 @@ function match(currentuser, dblength, gender, pets, partying, smoking, cleanline
             } else {
                 score += 0.1;
             }
-            matchscore += score*wpets;
+            matchscore += (score*wpets);
+            score = 0;
 
 
             //partying
             score = 1.0 - (Math.abs(partying - spot[i].partying))/10;
-            matchscore += score*wpartying;
+            matchscore += (score*wpartying);
+            score = 0;
 
             //cleanliness
             score = 1.0 - (Math.abs(cleanliness - spot[i].cleanliness))/10;
-            matchscore += score*wcleanliness;
+            matchscore += (score*wcleanliness);
+            score = 0;
+
 
             //console.log(matchscore);
-            allscores.push(matchscore);
+            allscores.push(spot[i].username + ": " + matchscore);
         }//end of loop
 
         console.log(allscores);
+
+        
+        // var secondlargest = allscores[allscores.length - 2]
+        // console.log(secondlargest);
     });
 
 
