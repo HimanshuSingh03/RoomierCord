@@ -162,7 +162,7 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
     })
 
 
-    match(req.user.username, req.user.gender, req.user.pets, req.user.partying, req.user.smoking, req.user.cleanliness);
+    match(req.user.username, req.user.university, req.user.gender, req.user.pets, req.user.partying, req.user.smoking, req.user.cleanliness);
 
 });
 app.post("/mainpage", (req, res) => {
@@ -196,7 +196,7 @@ app.listen(process.env.PORT || 3000, function (err) {
 
 
 
-function match(currentuser, gender, pets, partying, smoking, cleanliness) {
+function match(currentuser, university, gender, pets, partying, smoking, cleanliness) {
     
     
     //weights
@@ -211,13 +211,15 @@ function match(currentuser, gender, pets, partying, smoking, cleanliness) {
     var allscores = [];
 
         
-    const cursor = db.collection('users').find().toArray(function(err, spot) {
-
+    const cursor = db.collection('users').find().toArray(function(err, spot) { //converts database into array
+        
         console.log(currentuser);
         var dblength = spot.length; 
 
         for (let i = 0; i < dblength; i++) {
-            
+
+            matchscore = 0;
+
             //gender
             if(gender == (spot[i].gender)){
                 score += 1.0;
@@ -265,9 +267,6 @@ function match(currentuser, gender, pets, partying, smoking, cleanliness) {
 
         console.log(allscores);
 
-        
-        // var secondlargest = allscores[allscores.length - 2]
-        // console.log(secondlargest);
     });
 
 
