@@ -48,8 +48,7 @@ var tempuniversity;
 
 var currentusername;
 
-var secondhighest;
-var thirdhighest;
+
 
 
 app.get("/", (req, res) => {
@@ -185,7 +184,12 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
 
             for (let i = 0; i < dblength; i++) {
 
-                matchscore = 0;
+                matchscore = 0; //reset for each match
+
+                //university
+                if(req.user.university != (users[i].university)){
+                    matchscore += -10;
+                }
 
                 //gender
                 if(req.user.gender == (users[i].gender)){
@@ -227,26 +231,14 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
                 matchscore += (score*wcleanliness);
                 score = 0;
 
-                allscores.push(matchscore);
+                allscores.push(matchscore + " " + users[i].username);
             }//end of loop
 
-            //console.log(allscores);
-
+        console.log(allscores.sort());
         //take second and third highest
-        var temp;
-        for(let i = 0; i<allscores.length; i++ ){
-            for(let j = i+1; j<allscores.length; j++){
-   
-               if(allscores[i]>allscores[j]){
-                  temp = allscores[i];
-                  allscores[i] = allscores[j];
-                  allscores[j] = temp;
-               }
-            }
-        }
-
-        secondhighest = (allscores[allscores.length - 2]);
-        thirdhighest = (allscores[allscores.length - 3]);
+        
+        var firstmatch = (allscores[allscores.length - 2]).split(" ");
+        var secondmatch = (allscores[allscores.length - 3]).split(" ");
 
         //END OF CODE FOR MATCHING SCRIPT ------------------------------------------------------
 
@@ -255,7 +247,10 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
         res.render("mainpage", {
             usersList: users,
             universityname: req.user.university,
-            firstmatch: secondhighest
+            firstmatchname: firstmatch[1],
+            firstmatchscore: firstmatch[0],
+            secondmatchname: secondmatch[1],
+            secondmatchscore: secondmatch[0],
         })
     })
 
