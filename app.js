@@ -168,18 +168,101 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
 
     User.find({ university: "Carleton"}, function(err, users) {
 
+        //CODE FOR MATCHING SCRIPT ------------------------------------------------------
+        //weights
+        const wgender = 0.25;
+        const wpets = 0.10;
+        const wpartying = 0.22;
+        const wsmoking = 0.25;
+        const wcleanliness = 0.18;
+
+        var matchscore = 0;
+        var score = 0;
+        allscores = [];
+
+
+        var dblength = users.length;
+
+            for (let i = 0; i < dblength; i++) {
+
+                matchscore = 0;
+
+                //gender
+                if(req.user.gender == (users[i].gender)){
+                    score += 1.0;
+                } else {
+                    score += 0.1;
+                }
+                matchscore += (score*wgender);
+                score = 0;
+
+
+                //smoking
+                if(req.user.smoking == (users[i].smoking)){
+                    score += 1.0;
+                } else {
+                    score += 0.1;
+                }
+                matchscore += (score*wsmoking);
+                score = 0;
+            
+                
+                //pets
+                if(req.user.pets == (users[i].pets)){
+                    score += 1.0;
+                } else {
+                    score += 0.1;
+                }
+                matchscore += (score*wpets);
+                score = 0;
+
+
+                //partying
+                score = 1.0 - (Math.abs(req.user.partying - users[i].partying))/10;
+                matchscore += (score*wpartying);
+                score = 0;
+
+                //cleanliness
+                score = 1.0 - (Math.abs(req.user.cleanliness - users[i].cleanliness))/10;
+                matchscore += (score*wcleanliness);
+                score = 0;
+
+                allscores.push(matchscore);
+            }//end of loop
+
+            //console.log(allscores);
+
+        //take second and third highest
+        var temp;
+        for(let i = 0; i<allscores.length; i++ ){
+            for(let j = i+1; j<allscores.length; j++){
+   
+               if(allscores[i]>allscores[j]){
+                  temp = allscores[i];
+                  allscores[i] = allscores[j];
+                  allscores[j] = temp;
+               }
+            }
+        }
+
+        secondhighest = (allscores[allscores.length - 2]);
+        thirdhighest = (allscores[allscores.length - 3]);
+
+        //END OF CODE FOR MATCHING SCRIPT ------------------------------------------------------
+
+
+
         res.render("mainpage", {
             usersList: users,
-            universityname: req.user.university
+            universityname: req.user.university,
+            firstmatch: secondhighest
         })
     })
 
-
-    match(req.user.username, req.user.university, req.user.gender, req.user.pets, req.user.partying, req.user.smoking, req.user.cleanliness);
-
 });
+
 app.post("/mainpage", (req, res) => {
-})
+});
 
 
 
@@ -204,101 +287,3 @@ app.listen(process.env.PORT || 3000, function (err) {
     }
 
 });
-
-
-
-
-
-function match(currentuser, university, gender, pets, partying, smoking, cleanliness) {
-    
-    
-    //weights
-    const wgender = 0.25;
-    const wpets = 0.10;
-    const wpartying = 0.22;
-    const wsmoking = 0.25;
-    const wcleanliness = 0.18;
-
-    var matchscore = 0;
-    var score = 0;
-    var allscores = [];
-
-    
-        
-    db.collection('users').find().toArray(function(err, spot) { //converts database into array
-        
-        //console.log(currentuser);
-        var dblength = spot.length; 
-
-        for (let i = 0; i < dblength; i++) {
-
-            matchscore = 0;
-
-            //gender
-            if(gender == (spot[i].gender)){
-                score += 1.0;
-            } else {
-                score += 0.1;
-            }
-            matchscore += (score*wgender);
-            score = 0;
-
-
-            //smoking
-            if(smoking == (spot[i].smoking)){
-                score += 1.0;
-            } else {
-                score += 0.1;
-            }
-            matchscore += (score*wsmoking);
-            score = 0;
-        
-            
-            //pets
-            if(pets == (spot[i].pets)){
-                score += 1.0;
-            } else {
-                score += 0.1;
-            }
-            matchscore += (score*wpets);
-            score = 0;
-
-
-            //partying
-            score = 1.0 - (Math.abs(partying - spot[i].partying))/10;
-            matchscore += (score*wpartying);
-            score = 0;
-
-            //cleanliness
-            score = 1.0 - (Math.abs(cleanliness - spot[i].cleanliness))/10;
-            matchscore += (score*wcleanliness);
-            score = 0;
-
-
-            allscores.push(matchscore);
-        }//end of loop
-
-        console.log(allscores);
-
-        //take second highest
-        var temp;
-        for(let i = 0; i<allscores.length; i++ ){
-            for(let j = i+1; j<allscores.length; j++){
-   
-               if(allscores[i]>allscores[j]){
-                  temp = allscores[i];
-                  allscores[i] = allscores[j];
-                  allscores[j] = temp;
-               }
-            }
-        }
-
-         secondhighest = (allscores[allscores.length - 2]);
-         thirdhighest = (allscores[allscores.length - 3]);
-
-         console.log(secondhighest);
-    });
-
-
-}
-
