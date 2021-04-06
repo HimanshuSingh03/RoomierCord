@@ -8,6 +8,7 @@
     <script src="http://yadcf-showcase.appspot.com/resources/js/jquery.dataTables.yadcf.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="js/filter.js"></script>
+    <script src="js/filter2.js"></script>
 
     <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" />
     <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
@@ -52,20 +53,71 @@
             <div class="row">
                 <div class="col-md-2">
 
-                    
+                    <!-- range slider filters -->
                     <div class="filters">
                         <h2>Filters</h2>
                         <label>Age:&nbsp;</label><input type="text" id="live_range_age" readonly class="filter-numbers">
-                        <div id="age_range" style="width:90%"></div><br>
+                        <div id="age_range" style="width:80%"></div><br>
 
                         <label>Partying:&nbsp;</label><input type="text" id="live_range_party" readonly
                             class="filter-numbers">
-                        <div id="party_range" style="width:90%"></div><br>
+                        <div id="party_range" style="width:80%"></div><br>
 
                         <label>Cleanliness:&nbsp;</label><input type="text" id="live_range_clean" readonly
                             class="filter-numbers">
-                        <div id="val_range_clean" style="width:90%"></div><br>
+                        <div id="val_range_clean" style="width:80%"></div><br>
+
+                        <label>Cooking:&nbsp;</label><input type="text" id="live_range_cooking" readonly
+                            class="filter-numbers">
+                        <div id="cooking_range" style="width:80%"></div><br>
+
+                        <label>Budget ($/m):&nbsp;</label><input type="text" id="live_range_budget" readonly
+                            class="filter-numbers">
+                        <div id="budget_range" style="width:80%"></div><br>
+
+                        <label>Max. Distance (km):&nbsp;</label><input type="text" id="live_range_maxdistance" readonly
+                            class="filter-numbers">
+                        <div id="maxdistance_range" style="width:80%"></div>
                     </div>
+                    <br>
+                    <!-- smoking radio buttons filter -->
+                    <div id="smoking-filters" class="btn-group" data-toggle="buttons"
+                        style="margin-top: 10px; margin-bottom: 10px; float:right; margin-right:5%">
+                        <label style="float:left; margin-right:10px;">Smoking:&nbsp;</label>
+                        <label id="gridDisplayAllLabel" class="btn">
+                            <input type="radio" name="GridDisplay" id="gridDisplayAll" autocomplete="off" value="all"
+                                checked="checked" />
+                            All
+                        </label>
+                        <label id="gridDisplayYesLabel" class="btn">
+                            <input type="radio" name="GridDisplay" id="gridDisplayYes" autocomplete="off" value="Yes" />
+                            Yes
+                        </label>
+                        <label id="gridDisplayNoLabel" class="btn">
+                            <input type="radio" name="GridDisplay" id="gridDisplayNo" autocomplete="off" value="No" />
+                            No
+                        </label>
+                    </div>
+
+                    <!-- pets radio buttons filter -->
+                    <div id="pets-filters" class="btn-group" data-toggle="buttons"
+                        style="margin-top: 10px; margin-bottom: 20px; float:right; margin-right:5%">
+                        <label style="float:left; margin-right:10px;">Pets:&nbsp;</label>
+                        <label id="gridDisplayAllLabel2" class="btn">
+                            <input type="radio" name="GridDisplay2" id="gridDisplayAll2" autocomplete="off" value="all"
+                                checked="checked" />
+                            All
+                        </label>
+                        <label id="gridDisplayYesLabel2" class="btn">
+                            <input type="radio" name="GridDisplay2" id="gridDisplayYes2" autocomplete="off" value="Yes" />
+                            Yes
+                        </label>
+                        <label id="gridDisplayNoLabel2" class="btn">
+                            <input type="radio" name="GridDisplay2" id="gridDisplayNo2" autocomplete="off" value="No" />
+                            No
+                        </label>
+                    </div>
+
                 </div>
                 <!-- data table -->
                 <div class="col-md-9">
@@ -83,8 +135,8 @@
                                 <th scope="col">Partying</th>
                                 <th scope="col">Cleanliness</th>
                                 <th scope="col">Cooking</th>
-                                <th scope="col">Budget</th>
-                                <th scope="col">Max. Distance from School</th>
+                                <th scope="col">Budget ($/m)</th>
+                                <th scope="col">Max. Distance from School (km)</th>
                             </tr>
                         </thead>
 
@@ -124,9 +176,11 @@
                                     <td>
                                         <%= user.cooking %>
                                     </td>
-                                    <td>$<%= user.budget %>/m</td>
                                     <td>
-                                        <%= user.maxdistance %> km
+                                        <%= user.budget %>
+                                    </td>
+                                    <td>
+                                        <%= user.maxdistance %>
                                     </td>
                                 </tr>
                                 <%})%>

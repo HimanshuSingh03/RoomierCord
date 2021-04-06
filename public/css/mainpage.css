@@ -30,6 +30,7 @@ thead {
     background-image: url("../img/gradient9.png");
     background-position: bottom;
     box-sizing: border-box;
+    background-attachment: fixed;
 }
 
 .full {
@@ -183,4 +184,9 @@ input[type="search"] {
 
 #sort_table_info {
     color: white;
+}
+
+#gridDisplayAllLabel, #gridDisplayAllLabel2 {
+    border-start-start-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
