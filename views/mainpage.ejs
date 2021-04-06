@@ -1,18 +1,152 @@
-<h2>
-    Showing Results for: 
-</h2>
-<h1>
-    <%= universityname %>
-</h1>
+<!DOCTYPE html>
+
+<head>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://yadcf-showcase.appspot.com/resources/js/jquery.dataTables.yadcf.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/filter.js"></script>
+
+    <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+
+    <meta charset=utf-8 />
+    <title>RoomierCord - Main Page</title>
+</head>
 
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<body class="others">
+    <div class="container-fluid m-0 p-0 full">
+        <div id="home-page" class="full-height">
+            <!-- Navigation bar -->
+            <div class="navbar">
+                <img src="img/roomiercordYELLOW.png" alt="" class="logo" />
+                <nav>
+                    <ul>
+                        <li><a class="current" href="/mainpage">Find a Roommate</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
 
-    <table class="table">
-        <thead>
+                <a href="/editattributes">
+                    <button type="button" class="button btn btn-lg sign-up">
+                        Profile
+                    </button>
+                </a>
+            </div>
+
+            <div class="container">
+                <h2 class="promo-title" id="editattributes">
+                    Showing Results for:
+                </h2>
+                <h1 class="promo-title" id="editattributes">
+                    <%= universityname %>
+                </h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+
+                    
+                    <div class="filters">
+                        <h2>Filters</h2>
+                        <label>Age:&nbsp;</label><input type="text" id="live_range_age" readonly class="filter-numbers">
+                        <div id="age_range" style="width:90%"></div><br>
+
+                        <label>Partying:&nbsp;</label><input type="text" id="live_range_party" readonly
+                            class="filter-numbers">
+                        <div id="party_range" style="width:90%"></div><br>
+
+                        <label>Cleanliness:&nbsp;</label><input type="text" id="live_range_clean" readonly
+                            class="filter-numbers">
+                        <div id="val_range_clean" style="width:90%"></div><br>
+                    </div>
+                </div>
+                <!-- data table -->
+                <div class="col-md-9">
+                    <table id="sort_table" class="display nowrap datatable" width="50%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Username</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">University</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Smoking</th>
+                                <th scope="col">Pets</th>
+                                <th scope="col">Partying</th>
+                                <th scope="col">Cleanliness</th>
+                                <th scope="col">Cooking</th>
+                                <th scope="col">Budget</th>
+                                <th scope="col">Max. Distance from School</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <%usersList.forEach(user=> {%>
+                                <tr>
+                                    <th class="username" scope="row">
+                                        <%= user.username %>
+                                    </th>
+                                    <td class="username">
+                                        <%= user.firstname %>
+                                    </td>
+                                    <td class="username">
+                                        <%= user.lastname %>
+                                    </td>
+                                    <td>
+                                        <%= user.age %>
+                                    </td>
+                                    <td>
+                                        <%= user.university %>
+                                    </td>
+                                    <td>
+                                        <%= user.gender %>
+                                    </td>
+                                    <td>
+                                        <%= user.smoker %>
+                                    </td>
+                                    <td>
+                                        <%= user.pets %>
+                                    </td>
+                                    <td>
+                                        <%= user.partying %>
+                                    </td>
+                                    <td>
+                                        <%= user.cleanliness %>
+                                    </td>
+                                    <td>
+                                        <%= user.cooking %>
+                                    </td>
+                                    <td>$<%= user.budget %>/m</td>
+                                    <td>
+                                        <%= user.maxdistance %> km
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+
+<!-- <table class="table">
+    <thead>
         <tr>
-            
+
             <th scope="col">Username</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
@@ -27,30 +161,45 @@
 
 
         </tr>
-        </thead>
+    </thead>
 
-        <tbody>
-        <%usersList.forEach(user => {%>
+    <tbody>
+        <%usersList.forEach(user=> {%>
             <tr>
-                <th scope="row"><%= user.username %></th>
-                <td><%= user.firstname %></td>
-                <td><%= user.lastname %></td>
-                <td><%= user.university %></td>
-                <td><%= user.gender %></td>
-                <td><%= user.smoker %></td>
-                <td><%= user.pets %></td>
-                <td><%= user.partying %></td>
-                <td><%= user.cleanliness %></td>
-                <td><%= user.cooking %></td>
+                <th scope="row">
+                    <%= user.username %>
+                </th>
+                <td>
+                    <%= user.firstname %>
+                </td>
+                <td>
+                    <%= user.lastname %>
+                </td>
+                <td>
+                    <%= user.university %>
+                </td>
+                <td>
+                    <%= user.gender %>
+                </td>
+                <td>
+                    <%= user.smoker %>
+                </td>
+                <td>
+                    <%= user.pets %>
+                </td>
+                <td>
+                    <%= user.partying %>
+                </td>
+                <td>
+                    <%= user.cleanliness %>
+                </td>
+                <td>
+                    <%= user.cooking %>
+                </td>
                 <td>$<%= user.budget %>/m</td>
 
             </tr>
-        <%})%>
+            <%})%>
 
-        </tbody>
-    </table>
-
-<ul>
-    <li><a href="/editattributes">Edit my Attributes</a></li>
-    <li><a href="/logout">Logout</a></li>
-</ul>
+    </tbody>
+</table> -->
