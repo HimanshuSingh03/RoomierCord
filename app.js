@@ -113,9 +113,22 @@ app.post("/attributes", (req, res) => {
     res.redirect("/login");
 })
 
+
+
 app.get("/editattributes", isLoggedIn, (req, res) => {
-    res.render("editattributes");
+    res.render("editattributes", {
+        partyOLDvalue: req.user.partying,
+        cleanOLDvalue: req.user.cleanliness,
+        cookingOLDvalue: req.user.cooking,
+        distanceOLDvalue: req.user.cooking,
+        ageOLDvalue: req.user.age,
+        smokingOLDvalue: req.user.smoking,
+        petsOLDvalue: req.user.pets,
+        budgetOLDvalue: req.user.budget
+
+    })
 });
+
 app.post('/editattributes', isLoggedIn, (req, res) => {
 
     currentusername = req.user.username
