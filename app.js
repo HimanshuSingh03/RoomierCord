@@ -48,8 +48,8 @@ var tempuniversity;
 
 var currentusername;
 
-
-
+var secondhighest;
+var thirdhighest;
 
 
 app.get("/", (req, res) => {
@@ -210,10 +210,11 @@ function match(currentuser, university, gender, pets, partying, smoking, cleanli
     var score = 0;
     var allscores = [];
 
+    
         
-    const cursor = db.collection('users').find().toArray(function(err, spot) { //converts database into array
+    db.collection('users').find().toArray(function(err, spot) { //converts database into array
         
-        console.log(currentuser);
+        //console.log(currentuser);
         var dblength = spot.length; 
 
         for (let i = 0; i < dblength; i++) {
@@ -261,14 +262,29 @@ function match(currentuser, university, gender, pets, partying, smoking, cleanli
             score = 0;
 
 
-            //console.log(matchscore);
-            allscores.push(spot[i].username + ": " + matchscore);
+            allscores.push(matchscore);
         }//end of loop
 
         console.log(allscores);
 
-    });
+        //take second highest
+        var temp;
+        for(let i = 0; i<allscores.length; i++ ){
+            for(let j = i+1; j<allscores.length; j++){
+   
+               if(allscores[i]>allscores[j]){
+                  temp = allscores[i];
+                  allscores[i] = allscores[j];
+                  allscores[j] = temp;
+               }
+            }
+        }
 
+         secondhighest = (allscores[allscores.length - 2]);
+         thirdhighest = (allscores[allscores.length - 3]);
+
+         console.log(secondhighest);
+    });
 
 
 }
