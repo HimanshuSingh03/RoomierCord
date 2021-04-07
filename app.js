@@ -116,6 +116,9 @@ app.post("/attributes", (req, res) => {
 
 app.get("/editattributes", isLoggedIn, (req, res) => {
     res.render("editattributes", {
+        firstnameOLDvalue: req.user.firstname,
+        lastnameOLDvalue: req.user.lastname,
+        universityOLDvalue: req.user.university,
         partyOLDvalue: req.user.partying,
         cleanOLDvalue: req.user.cleanliness,
         cookingOLDvalue: req.user.cooking,
