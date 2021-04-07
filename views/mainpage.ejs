@@ -41,17 +41,22 @@
                 </a>
             </div>
 
-            <div class="container">
-                <h2 class="promo-title" id="editattributes">
-                    Showing Results for:
-                </h2>
-                <h1 class="promo-title" id="editattributes">
-                    <%= universityname %>
-                </h1>
+            <div class="row" id="big-text">
+                <div class="showing-results">
+                    <h3 class="promo-title">
+                        Showing Results for:
+                    </h3>
+                </div>
+                <div class="uni-name">
+
+                    <h1 class="promo-title" id="universityname">
+                        <%= universityname %>
+                    </h1>
+                </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-2">
+            <div class="row" id="filters-and-table">
+                <div class="col-md-2" id="all-filters">
 
                     <!-- range slider filters -->
                     <div class="filters">
@@ -84,16 +89,16 @@
                     <div id="smoking-filters" class="btn-group" data-toggle="buttons"
                         style="margin-top: 10px; margin-bottom: 10px; float:right; margin-right:5%">
                         <label style="float:left; margin-right:10px;">Smoking:&nbsp;</label>
-                        <label id="gridDisplayAllLabel" class="btn">
+                        <label id="gridDisplayAllLabel" class="btn filter-btn">
                             <input type="radio" name="GridDisplay" id="gridDisplayAll" autocomplete="off" value="all"
                                 checked="checked" />
                             All
                         </label>
-                        <label id="gridDisplayYesLabel" class="btn">
+                        <label id="gridDisplayYesLabel" class="btn filter-btn">
                             <input type="radio" name="GridDisplay" id="gridDisplayYes" autocomplete="off" value="Yes" />
                             Yes
                         </label>
-                        <label id="gridDisplayNoLabel" class="btn">
+                        <label id="gridDisplayNoLabel" class="btn filter-btn">
                             <input type="radio" name="GridDisplay" id="gridDisplayNo" autocomplete="off" value="No" />
                             No
                         </label>
@@ -103,16 +108,17 @@
                     <div id="pets-filters" class="btn-group" data-toggle="buttons"
                         style="margin-top: 10px; margin-bottom: 20px; float:right; margin-right:5%">
                         <label style="float:left; margin-right:10px;">Pets:&nbsp;</label>
-                        <label id="gridDisplayAllLabel2" class="btn">
+                        <label id="gridDisplayAllLabel2" class="btn filter-btn">
                             <input type="radio" name="GridDisplay2" id="gridDisplayAll2" autocomplete="off" value="all"
                                 checked="checked" />
                             All
                         </label>
-                        <label id="gridDisplayYesLabel2" class="btn">
-                            <input type="radio" name="GridDisplay2" id="gridDisplayYes2" autocomplete="off" value="Yes" />
+                        <label id="gridDisplayYesLabel2" class="btn filter-btn">
+                            <input type="radio" name="GridDisplay2" id="gridDisplayYes2" autocomplete="off"
+                                value="Yes" />
                             Yes
                         </label>
-                        <label id="gridDisplayNoLabel2" class="btn">
+                        <label id="gridDisplayNoLabel2" class="btn filter-btn">
                             <input type="radio" name="GridDisplay2" id="gridDisplayNo2" autocomplete="off" value="No" />
                             No
                         </label>
@@ -120,72 +126,74 @@
 
                 </div>
                 <!-- data table -->
-                <div class="col-md-9">
-                    <table id="sort_table" class="display nowrap datatable" width="50%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Username</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">University</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Smoking</th>
-                                <th scope="col">Pets</th>
-                                <th scope="col">Partying</th>
-                                <th scope="col">Cleanliness</th>
-                                <th scope="col">Cooking</th>
-                                <th scope="col">Budget ($/m)</th>
-                                <th scope="col">Max. Distance from School (km)</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <%usersList.forEach(user=> {%>
+                <div class="col table-div">
+                    <div class="table-responsive">
+                        <table id="sort_table" class="display nowrap datatable cell-border" width="100%">
+                            <thead>
                                 <tr>
-                                    <th class="username" scope="row">
-                                        <%= user.username %>
-                                    </th>
-                                    <td class="username">
-                                        <%= user.firstname %>
-                                    </td>
-                                    <td class="username">
-                                        <%= user.lastname %>
-                                    </td>
-                                    <td>
-                                        <%= user.age %>
-                                    </td>
-                                    <td>
-                                        <%= user.university %>
-                                    </td>
-                                    <td>
-                                        <%= user.gender %>
-                                    </td>
-                                    <td>
-                                        <%= user.smoker %>
-                                    </td>
-                                    <td>
-                                        <%= user.pets %>
-                                    </td>
-                                    <td>
-                                        <%= user.partying %>
-                                    </td>
-                                    <td>
-                                        <%= user.cleanliness %>
-                                    </td>
-                                    <td>
-                                        <%= user.cooking %>
-                                    </td>
-                                    <td>
-                                        <%= user.budget %>
-                                    </td>
-                                    <td>
-                                        <%= user.maxdistance %>
-                                    </td>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">University</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Smoking</th>
+                                    <th scope="col">Pets</th>
+                                    <th scope="col">Partying</th>
+                                    <th scope="col">Cleanliness</th>
+                                    <th scope="col">Cooking</th>
+                                    <th scope="col">Budget ($/m)</th>
+                                    <th scope="col">Max. Distance (km)</th>
                                 </tr>
-                                <%})%>
-                        </tbody>
-                    </table>
+                            </thead>
+
+                            <tbody>
+                                <%usersList.forEach(user=> {%>
+                                    <tr>
+                                        <th class="username" scope="row">
+                                            <%= user.username %>
+                                        </th>
+                                        <td class="username">
+                                            <%= user.firstname %>
+                                        </td>
+                                        <td class="username">
+                                            <%= user.lastname %>
+                                        </td>
+                                        <td>
+                                            <%= user.age %>
+                                        </td>
+                                        <td>
+                                            <%= user.university %>
+                                        </td>
+                                        <td>
+                                            <%= user.gender %>
+                                        </td>
+                                        <td>
+                                            <%= user.smoker %>
+                                        </td>
+                                        <td>
+                                            <%= user.pets %>
+                                        </td>
+                                        <td>
+                                            <%= user.partying %>
+                                        </td>
+                                        <td>
+                                            <%= user.cleanliness %>
+                                        </td>
+                                        <td>
+                                            <%= user.cooking %>
+                                        </td>
+                                        <td>
+                                            <%= user.budget %>
+                                        </td>
+                                        <td>
+                                            <%= user.maxdistance %>
+                                        </td>
+                                    </tr>
+                                    <%})%>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -193,67 +201,3 @@
         </div>
     </div>
 </body>
-
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-
-<!-- <table class="table">
-    <thead>
-        <tr>
-
-            <th scope="col">Username</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">University</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Smoking</th>
-            <th scope="col">Pets</th>
-            <th scope="col">Partying</th>
-            <th scope="col">Cleanliness</th>
-            <th scope="col">Cooking</th>
-            <th scope="col">Max Budget</th>
-
-
-        </tr>
-    </thead>
-
-    <tbody>
-        <%usersList.forEach(user=> {%>
-            <tr>
-                <th scope="row">
-                    <%= user.username %>
-                </th>
-                <td>
-                    <%= user.firstname %>
-                </td>
-                <td>
-                    <%= user.lastname %>
-                </td>
-                <td>
-                    <%= user.university %>
-                </td>
-                <td>
-                    <%= user.gender %>
-                </td>
-                <td>
-                    <%= user.smoker %>
-                </td>
-                <td>
-                    <%= user.pets %>
-                </td>
-                <td>
-                    <%= user.partying %>
-                </td>
-                <td>
-                    <%= user.cleanliness %>
-                </td>
-                <td>
-                    <%= user.cooking %>
-                </td>
-                <td>$<%= user.budget %>/m</td>
-
-            </tr>
-            <%})%>
-
-    </tbody>
-</table> -->

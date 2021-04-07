@@ -1,29 +1,16 @@
-html,body
-{
+html, body {
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .container {
     width: 100%;
     padding: 0;
-    margin: 0% 5%;
-}
-
-table {
-    text-align: center;
-}
-
-thead {
-    background-color: #ff6600;
-    color: white;
-}
-
-.username {
-    text-align:left;
+    margin: 0% 2%;
+    align-items: center;
 }
 
 .others #home-page {
@@ -48,32 +35,34 @@ thead {
 }
 
 .promo-title {
-    color:white;
+    color: white;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.filters {
-    color: white;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-right: 0%;
-    width: 100%;
-    margin-top: 15%;
+#universityname {
+    font-size: 4em;
+    color: #ff9100;
 }
 
-.filter-numbers {
-    border:0; 
-    color:#f6931f; 
-    font-weight:bold; 
-    background-color: transparent;
-    width: 50%;
+.showing-results {
+    margin-left: 3%;
 }
 
-.filters h2 {
-    margin-bottom: 10%;
+h3 {
+    font-weight: 400;
+}
+
+#big-text {
+    align-items: baseline;
+}
+
+.uni-name {
+    margin-left: 1%;
+    text-shadow: 0px 0px 5px #ffffffbe;
 }
 
 /* navbar styling */
+
 .navbar {
     height: 12%;
     display: flex;
@@ -104,10 +93,6 @@ thead {
     display: flex;
     height: 50%;
     align-items: top;
-}
-
-.col {
-    flex-basis: 50%;
 }
 
 nav {
@@ -171,15 +156,25 @@ label {
     color: white;
 }
 
-input[type="search"] {
-    color: white;
-}
-
 /* table */
 
-.datatable {
-    width: 100%;
-    margin-left: 5%;
+#filters-and-table {
+    align-items: top;
+    margin-top: 2%;
+}
+
+table {
+    text-align: center;
+}
+
+thead {
+    background-color: #ff6600;
+    color: white;
+    font-size: 0.8em;
+}
+
+.username {
+    text-align: left;
 }
 
 #sort_table_info {
@@ -189,4 +184,86 @@ input[type="search"] {
 #gridDisplayAllLabel, #gridDisplayAllLabel2 {
     border-start-start-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+#sort_table_info {
+    margin-bottom: 2%;
+}
+
+#sort_table_filter {
+    color: white;
+    float: left;
+}
+
+#sort_table_filter input {
+    color: white;
+}
+
+.table-div {
+    margin-right: 1%;
+}
+
+/* filters */
+
+#all-filters {
+    margin-left: 1%;
+}
+
+.filters {
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-right: 0%;
+    width: 100%;
+}
+
+.filter-numbers {
+    border: 0;
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+    width: 50%;
+}
+
+.filters h2 {
+    margin-bottom: 10%;
+}
+
+.filter-btn {
+    background-color: #ff6600;
+    color: white;
+    font-size: 100%;
+    font-weight: 400;
+}
+
+.btn-group {
+    align-items: center;
+}
+
+/* filter sliders */
+
+.ui-slider {
+    margin-top: 2%;
+    height: 5px;
+    position: relative;
+    border: none;
+    background: #ffffff;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: #ff6600;
+    border-radius: 25px;
+    outline: none;
+    border: 2px solid #fff;
+    position: absolute;
+    top: -5px;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+    background: #ff6600;
+}
+
+.ui-slider .ui-slider-handle {
+    width: 15px;
+    height: 15px;
 }
