@@ -1,14 +1,15 @@
 const { aggregate } = require('./models/user');
 const user = require('./models/user');
 
-const express = require('express'),
-    app = express(),
-    mongoose = require("mongoose"),
-    passport = require("passport"),
-    bodyParser = require("body-parser"),
-    LocalStrategy = require("passport-local"),
-    passportLocalMongoose = require("passport-local-mongoose"),
-    User = require("./models/user");
+const   express = require('express'),
+        app = express(),
+        mongoose = require("mongoose"),
+        passport = require("passport"),
+        bodyParser = require("body-parser"),
+        LocalStrategy = require("passport-local"),
+        passportLocalMongoose = require("passport-local-mongoose"),
+        User = require("./models/user"),
+        flash = require('connect-flash');
 
 
 //Static files
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded(
 ))
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 
 var tempfirstname;
@@ -60,12 +62,12 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
     res.render("login");
 });
-app.post("/login", passport.authenticate("local", {
+
+app.post("/login", passport.authenticate('local', {
     successRedirect: "/mainpage",
     failureRedirect: "/login",
-}), function (req, res) {
-    console.log(err);
-});
+    failureFlash: true })
+);
 
 
 
