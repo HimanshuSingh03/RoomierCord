@@ -395,7 +395,6 @@ input[type="submit"]:hover {
     color: dimgray;
 }
 
-
 .slidebox {
     width: 100%;
     display: flex;
@@ -430,6 +429,7 @@ input[type="submit"]:hover {
     top: 0;
     text-align: center;
 }
+
 #SelectValue2 {
     position: absolute;
     top: 0;
@@ -456,10 +456,24 @@ input[type="submit"]:hover {
 #attributes-card1 {
     margin-left: 5%;
     margin-right: 5%;
-    width:30%;
+    width: 30%;
 }
 
 #attributes-card2 {
     width: 50%;
     height: auto;
 }
+
+#bio::placeholder {
+    font-size: 100%;
+    color:gray;
+}
+
+#bio {
+    padding: 2% 2%;
+}
+
+textarea:focus {
+    outline:dimgray;
+}
+

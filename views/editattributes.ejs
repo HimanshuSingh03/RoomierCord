@@ -43,9 +43,12 @@
                             <h1 id="your-attributes">Your Information</h1>
                         </div>
                         <div class="card-body" id="card-about">
-                            <div>Name:&nbsp;<%= firstnameOLDvalue %>&nbsp;<%= lastnameOLDvalue %></div>
-                            <div>University:&nbsp;<%= universityOLDvalue %></div>
-                            <div>Age:&nbsp;<%= ageOLDvalue %></div>
+                            <div>Name:&nbsp;<%= firstnameOLDvalue %>&nbsp;<%= lastnameOLDvalue %>
+                            </div>
+                            <div>University:&nbsp;<%= universityOLDvalue %>
+                            </div>
+                            <div>Age:&nbsp;<%= ageOLDvalue %>
+                            </div>
                             <label for="gender">Gender</label>
                             <input type="radio" id="male" name="gender" value="M" checked="checked">
                             <label for="male">Male</label>
@@ -53,8 +56,11 @@
                             <label for="female">Female</label>
                             <input type="radio" id="nonbin" name="gender" value="NB">
                             <label for="female">Non-Binary</label><br>
-                            <label for="bio">Your Bio</label>
-                            <input type="bio" id="bio" name="bio">
+                            <div class="bio-container">
+                                <textarea placeholder="Bio - describe yourself here..." type="bio" id="bio" name="bio"
+                                    id="" cols="30" rows="9"></textarea>
+                            </div>
+
 
                         </div>
                     </div>
@@ -70,8 +76,9 @@
                                     <label for="partying">Partying</label>
                                     <div class="slidecontainer">
                                         <input type="range" id="slider" name="partying" minlength="1" maxlength="10"
-                                            value=<%= partyOLDvalue %> max="10" class="slider" mousemove="range(this.value)"
-                                            onChange="range(this.value)">
+                                            value=<%=partyOLDvalue %> max="10" class="slider"
+                                        mousemove="range(this.value)"
+                                        onChange="range(this.value)">
                                         <div id="selector">
                                             <div id="SelectValue"></div>
                                         </div>
@@ -83,8 +90,9 @@
                                     <label for="cleanliness">Cleanliness</label>
                                     <div class="slidecontainer">
                                         <input type="range" id="slider2" name="cleanliness" minlength="1" maxlength="10"
-                                            value=<%= cleanOLDvalue %> max="10" class="slider" mousemove="range(this.value)"
-                                            onChange="range(this.value)">
+                                            value=<%=cleanOLDvalue %> max="10" class="slider"
+                                        mousemove="range(this.value)"
+                                        onChange="range(this.value)">
                                         <div id="selector2">
                                             <div id="SelectValue2"></div>
                                         </div>
@@ -96,8 +104,9 @@
                                     <label for="cooking">Cooking</label>
                                     <div class="slidecontainer">
                                         <input type="range" id="slider3" name="cooking" minlength="1" maxlength="10"
-                                            value=<%= cookingOLDvalue %> max="10" class="slider" mousemove="range(this.value)"
-                                            onChange="range(this.value)">
+                                            value=<%=cookingOLDvalue %> max="10" class="slider"
+                                        mousemove="range(this.value)"
+                                        onChange="range(this.value)">
                                         <div id="selector3">
                                             <div id="SelectValue3"></div>
                                         </div>
@@ -110,8 +119,9 @@
                                 <label for="maxdistance">Max. Distance from School (km)</label>
                                 <div class="slidecontainer">
                                     <input type="range" id="slider5" name="maxdistance" minlength="1" maxlength="10"
-                                        value=<%= distanceOLDvalue %> max="25" min="0" class="slider" mousemove="range(this.value)"
-                                        onChange="range(this.value)">
+                                        value=<%=distanceOLDvalue %> max="25" min="0" class="slider"
+                                    mousemove="range(this.value)"
+                                    onChange="range(this.value)">
                                     <div id="selector5">
                                         <div id="SelectValue5"></div>
                                     </div>
@@ -122,9 +132,10 @@
                             <div class="slidebox">
                                 <label for="age">Age</label>
                                 <div class="slidecontainer">
-                                    <input type="range" id="slider4" name="age" minlength="1" maxlength="10" value=<%= ageOLDvalue %>
-                                        max="30" min="18" class="slider" mousemove="range(this.value)"
-                                        onChange="range(this.value)">
+                                    <input type="range" id="slider4" name="age" minlength="1" maxlength="10"
+                                        value=<%=ageOLDvalue %>
+                                    max="30" min="18" class="slider" mousemove="range(this.value)"
+                                    onChange="range(this.value)">
                                     <div id="selector4">
                                         <div id="SelectValue4"></div>
                                     </div>
