@@ -2,6 +2,21 @@
 
 <head>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+        </script>
+
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -18,8 +33,6 @@
     <meta charset=utf-8 />
     <title>RoomierCord - Main Page</title>
 </head>
-
-
 
 <body class="others">
     <div class="container-fluid m-0 p-0 full">
@@ -144,6 +157,7 @@
                                     <th scope="col">Cooking</th>
                                     <th scope="col">Budget ($/m)</th>
                                     <th scope="col">Max. Distance (km)</th>
+                                    <th scope="col" class="bio" style="padding:0px 0px">Bio</th>
                                 </tr>
                             </thead>
 
@@ -151,21 +165,24 @@
                                 <%usersList.forEach(user=> {%>
                                     <tr>
                                         <th class="username" scope="row">
-                                            <%= user.username %>
+                                            <button class="userselect" data-toggle="modal" data-target="#usermodal">
+                                                <%= user.username %>
+                                            </button>
+
                                         </th>
-                                        <td class="username">
+                                        <td class="firstname">
                                             <%= user.firstname %>
                                         </td>
-                                        <td class="username">
+                                        <td class="lastname">
                                             <%= user.lastname %>
                                         </td>
-                                        <td>
+                                        <td class="age">
                                             <%= user.age %>
                                         </td>
-                                        <td>
+                                        <td class="university">
                                             <%= user.university %>
                                         </td>
-                                        <td>
+                                        <td class="gender">
                                             <%= user.gender %>
                                         </td>
                                         <td>
@@ -189,6 +206,9 @@
                                         <td>
                                             <%= user.maxdistance %>
                                         </td>
+                                        <td class="bio" style="padding:0px 0px">
+                                            <%= user.bio %>
+                                        </td>
                                     </tr>
                                     <%})%>
                             </tbody>
@@ -196,8 +216,84 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <script>
+        $(function () {
+            // ON SELECTING ROW
+            $(".userselect").click(function () {
+                //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
+                var a =
+                    $(this).parents("tr").find(".username").text();
+                var b =
+                    $(this).parents("tr").find(".firstname").text();
+                var c =
+                    $(this).parents("tr").find(".lastname").text();
+                var d =
+                    $(this).parents("tr").find(".age").text();
+                var e =
+                    $(this).parents("tr").find(".university").text();
+                var f =
+                    $(this).parents("tr").find(".gender").text();
+                var bio =
+                    $(this).parents("tr").find(".bio").text();
 
+                var p = "";
+                var name = "";
+                var genderage = "";
+
+                // CREATING DATA TO SHOW ON MODEL
+                name += b + " " + c;
+
+                genderage += f + " " + d;
+
+                p +=
+                    "<p id='a' name='Email' >Email: "
+                    + a + " </p>";
+
+                p +=
+                    "<p id='d' name='Age' >Age: "
+                    + d + " </p>";
+                p +=
+                    "<p id='e' name='University' >University: "
+                    + e + " </p>";
+                p +=
+                    "<p id='e' name='University'>Bio: "
+                    + bio + " </p>";
+
+                //CLEARING THE PREFILLED DATA
+                $("#divUSER").empty();
+                $("#usermodalname").empty();
+                $("#usermodallabel").empty();
+                //WRITING THE DATA ON MODEL
+                $("#divUSER").append(p);
+                $("#usermodalname").append(name);
+                $("#usermodallabel").append(genderage);
+            });
+        });
+    </script>
+    <!-- CREATING BOOTSTRAP MODEL -->
+    <div class="modal fade" id="usermodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- MODEL TITLE -->
+                    <h2 class="modal-title" id="usermodalname">
+                    </h2>
+                    <h2 class="modal-title" id="usermodallabel">
+                    </h2>
+                </div>
+                <!-- MODEL BODY -->
+                <div class="modal-body">
+                    <div class="USERclass" id="divUSER"></div>
+                    <div class="modal-footer">
+                        <!-- The close button in the bottom of the modal -->
+                        <button type="button" class="btn" data-dismiss="modal">
+                            Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

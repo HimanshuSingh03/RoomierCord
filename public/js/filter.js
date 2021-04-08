@@ -192,6 +192,13 @@ $(document).ready(function () {
     var table = $("#sort_table").DataTable({
         "bPaginate": false,
         "bFilter": true,
+
+        "columnDefs": [
+            {
+                "targets": [13],
+                "orderable": false
+            }
+        ]
     });
 
 

@@ -173,7 +173,7 @@ thead {
     font-size: 0.8em;
 }
 
-.username {
+.username, .firstname, .lastname {
     text-align: left;
 }
 
@@ -202,6 +202,19 @@ thead {
 .table-div {
     margin-right: 1%;
 }
+
+.userselect {
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.bio {
+    font-size: 0px;
+}
+
 
 /* filters */
 
