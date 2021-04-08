@@ -253,9 +253,9 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
             usersList: users,
             universityname: req.user.university,
             firstmatchname: firstmatch[1],
-            firstmatchscore: firstmatch[0],
+            firstmatchscore: (Math.round(100*firstmatch[0])/100)*100,
             secondmatchname: secondmatch[1],
-            secondmatchscore: secondmatch[0],
+            secondmatchscore: (Math.round(100*secondmatch[0])/100)*100,
         })
     })
 

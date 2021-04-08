@@ -34,10 +34,6 @@
     <title>RoomierCord - Main Page</title>
 </head>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e3bdd053ef7f212b8fa50ea821a153ce2af073ea
 <body class="others">
     <div class="container-fluid m-0 p-0 full">
         <div id="home-page" class="full-height">
@@ -71,6 +67,23 @@
                     </h1>
                 </div>
             </div>
+
+            <div class="row" id="cardrow">
+                <div class="card w-25" id="card1">
+                  <div class="card-header">
+                    <h1><%= firstmatchname %> - <%= firstmatchscore %>%</h1>
+                  </div>
+                  <div class="card-body" id="card-about">
+                  </div>
+                </div>
+                <div class="card w-25" id="card2">
+                  <div class="card-header">
+                    <h1><%= secondmatchname %> - <%= secondmatchscore %>%</h1>
+                  </div>
+                  <div class="card-body" id="card-about">
+                  </div>
+                </div>
+              </div>
 
             <div class="row" id="filters-and-table">
                 <div class="col-md-2" id="all-filters">
@@ -277,7 +290,7 @@
             });
         });
     </script>
-    <!-- CREATING BOOTSTRAP MODEL -->
+    <!-- Modal popup -->
     <div class="modal fade" id="usermodal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
