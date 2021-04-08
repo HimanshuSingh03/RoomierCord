@@ -232,7 +232,7 @@
                                     <th scope="col">Budget ($/m)</th>
                                     <th scope="col">Max. Distance (km)</th>
                                     <th scope="col" class="bio" style="padding:0px 0px">Bio</th>
-                                    <th scope="col" class="bio" style="padding:0px 0px">Username</th>
+                                    <th scope="col" class="usernamehidden" style="padding:0px 0px">Username</th>
                                 </tr>
                             </thead>
 
@@ -280,7 +280,7 @@
                                         <td class="bio" style="padding:0px 0px">
                                             <%= user.bio %>
                                         </td>
-                                        <th class="username bio" style="padding:0px 0px" scope="row">
+                                        <th class="username usernamehidden" style="padding:0px 0px" scope="row">
                                             <button class="userselect" data-toggle="modal" data-target="#usermodal">
                                                 <%= user.username %>
                                             </button>
