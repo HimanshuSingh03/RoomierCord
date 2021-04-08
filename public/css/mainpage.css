@@ -14,7 +14,7 @@ html, body {
 }
 
 .others #home-page {
-    background-image: url("../img/gradient9.png");
+    background-image: url("../img/gradient10.png");
     background-position: bottom;
     box-sizing: border-box;
     background-attachment: fixed;
@@ -40,13 +40,28 @@ html, body {
 }
 
 #universityname {
-    font-size: 4em;
+    font-size: 5em;
     color: #ff9100;
     text-transform: uppercase;
+    margin-left: 6%;
 }
 
 .showing-results {
-    margin-left: 3%;
+    margin-left: 6%;
+}
+
+#fit-best {
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+#scroll-down {
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding-top:3%;
+    padding-bottom:7%;
 }
 
 h3 {
@@ -58,8 +73,8 @@ h3 {
 }
 
 .uni-name {
-    margin-left: 1%;
     text-shadow: 0px 0px 5px #ffffffbe;
+    margin-bottom: 2%;
 }
 
 /* navbar styling */
@@ -176,6 +191,7 @@ thead {
 
 .username, .firstname, .lastname {
     text-align: left;
+    font-weight: bold;
 }
 
 #sort_table_info {
@@ -215,7 +231,6 @@ thead {
 .bio {
     font-size: 0px;
 }
-
 
 /* filters */
 
@@ -290,6 +305,20 @@ thead {
     margin: 1% 1%;
 }
 
+.card::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: 5px;
+    transform: translate(0%, -10%);
+    width: 9.5vmin;
+    height: 9.5vmin;
+    border-radius: 50%;
+    background: #fff;
+    border-color: black;
+    box-shadow: 0px 0px 12px #2c2c2c;
+}
+
 #cardrow {
     width: 100%;
     display: flex;
@@ -310,16 +339,31 @@ thead {
 
 .card-header {
     color: white;
-    background: #ff9100 0% 0% no-repeat padding-box;
+    background: #ff6600 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 10px;
     opacity: 1;
-    text-align: center;
+    text-align: left;
+}
+
+.card-name {
+    font-size: 160%;
+    margin-left: 3%;
+}
+
+.matchscore {
+    font-size: 260%;
+    color: #ff6600;
+    text-shadow: 0px 0px 2px black;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    transform: translate(0%, -10%);
 }
 
 .card-header:first-child {
     color: white;
-    background: #ff9100 0% 0% no-repeat padding-box;
+    background: #ff6600 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 10px;
     opacity: 1;
@@ -337,38 +381,46 @@ thead {
 #card-about {
     font-size: 120%;
     color: rgba(70, 70, 70, 255);
-    box-shadow: 0px 3px 10px #00000029;
+    box-shadow: 0px 0px 10px #00000029;
     text-align: center;
 }
 
 #card1 {
-    margin-left: 5%;
+    width: 40%;
+    height: 20%;
 }
 
 #card2 {
-    max-width: 40%;
+    width: 40%;
     height: auto;
 }
 
-#card3 {
-    max-width: 30%;
-    height: auto;
+#logo-row {
+    margin-top: 3%;
+    margin-left: 2%;
+    padding: 0;
 }
 
-#card4 {
-    max-width: 40%;
-    height: auto;
+.attribute-logos {
+    height: 70%;
+    width: auto;
+    margin-right: 2%;
 }
 
-.tos {
-    background: dimgray 0% 0% no-repeat padding-box !important;
+.attribute-text {
+    font-size: 2em;
+    width: auto;
+    margin-left: 4%;
 }
 
-#tos-card {
-    background-color: gray;
-    margin-left: 5%;
+.contact {
+    font-size: 1.3em;
+    float: left;
 }
 
-.card-header h1 {
-    font-size: 120%;
+#spacing {
+    text-align: center;
+    align-items:center;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }

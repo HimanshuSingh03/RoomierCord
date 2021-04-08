@@ -54,36 +54,93 @@
                 </a>
             </div>
 
-            <div class="row" id="big-text">
-                <div class="showing-results">
-                    <h3 class="promo-title">
-                        Showing Results for:
-                    </h3>
-                </div>
-                <div class="uni-name">
 
-                    <h1 class="promo-title" id="universityname">
-                        <%= universityname %>
-                    </h1>
+            <div class="showing-results">
+                <h3 class="promo-title">
+                    Showing Results for:
+                </h3>
+            </div>
+            <div class="uni-name">
+                <h1 class="promo-title" id="universityname">
+                    <%= universityname %>
+                </h1>
+
+            </div>
+            <h2 id="fit-best">Here's who we think would fit you best:</h2>
+            <div class="row" id="cardrow">
+                <div class="card w-25" id="card1">
+                    <div class="card-header">
+                        <div class="row">
+                            <h1 class="card-name">
+                                <%= firstFirstName %>&nbsp;<%= firstLastName %>
+                            </h1>
+                            <h1 style="float:left" class="matchscore">
+                                <%= firstmatchscore %>%
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card-body" id="card-about">
+                            <%= firstBio %>
+                        </div>
+                    </div>
+                    <div class="row" id="logo-row">
+                        <div class="col-sm-1"><img src="img/chef.png" alt="" class="attribute-logos" /></div>
+                        <div class="col-sm-1 attribute-text">
+                            <%= firstCooking %>
+                        </div>
+                        <div class="col-sm-1"><img src="img/spraycan.png" alt="" class="attribute-logos" /></div>
+                        <div class="col-sm-1 attribute-text">
+                            <%= firstCleanliness %>
+                        </div>
+                        <div class="col-sm-1"><img src="img/wineglasses.png" alt="" class="attribute-logos" /></div>
+                        <div class="col-sm-1 attribute-text">
+                            <%= firstPartying %>
+                        </div>
+                        <div class="col-sm-3"> <button data-toggle="modal" data-target="#contactmodal" type="button"
+                                class="button btn btn-lg contact">
+                                Contact
+                            </button></div>
+                    </div>
+                </div>
+                <div class="card w-25" id="card1">
+                    <div class="card-header">
+                        <div class="row">
+                            <h1 class="card-name">
+                                <%= secondFirstName %>&nbsp;<%= secondLastName %>
+                            </h1>
+                            <h1 style="float:left" class="matchscore">
+                                <%= secondmatchscore %>%
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card-body" id="card-about">
+                            <%= secondBio %>
+                        </div>
+                    </div>
+                    <div class="row" id="logo-row">
+                        <div class="col-sm-1"><img src="img/chef.png" alt="" class="attribute-logos" /></div>
+                        <div class="col-sm-1 attribute-text">
+                            <%= secondCooking %>
+                        </div>
+                        <div class="col-sm-1"><img src="img/spraycan.png" alt="" class="attribute-logos" /></div>
+                        <div class="col-sm-1 attribute-text">
+                            <%= secondCleanliness %>
+                        </div>
+                        <div class="col-sm-1"><img src="img/wineglasses.png" alt="" class="attribute-logos" /></div>
+                        <div class="col-sm-1 attribute-text">
+                            <%= secondPartying %>
+                        </div>
+                        <div class="col-sm-3"> <button data-toggle="modal" data-target="#contactmodal2" type="button"
+                                class="button btn btn-lg contact">
+                                Contact
+                            </button></div>
+                    </div>
                 </div>
             </div>
 
-            <div class="row" id="cardrow">
-                <div class="card w-25" id="card1">
-                  <div class="card-header">
-                    <h1><%= firstmatchname %> - <%= firstmatchscore %>%</h1>
-                  </div>
-                  <div class="card-body" id="card-about">
-                  </div>
-                </div>
-                <div class="card w-25" id="card2">
-                  <div class="card-header">
-                    <h1><%= secondmatchname %> - <%= secondmatchscore %>%</h1>
-                  </div>
-                  <div class="card-body" id="card-about">
-                  </div>
-                </div>
-              </div>
+            <h2 id="scroll-down">Scroll down to browse more users</h2>
 
             <div class="row" id="filters-and-table">
                 <div class="col-md-2" id="all-filters">
@@ -161,7 +218,7 @@
                         <table id="sort_table" class="display nowrap datatable cell-border" width="100%">
                             <thead>
                                 <tr>
-                                    <th scope="col">Username</th>
+
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Age</th>
@@ -175,21 +232,18 @@
                                     <th scope="col">Budget ($/m)</th>
                                     <th scope="col">Max. Distance (km)</th>
                                     <th scope="col" class="bio" style="padding:0px 0px">Bio</th>
+                                    <th scope="col" class="bio" style="padding:0px 0px">Username</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <%usersList.forEach(user=> {%>
                                     <tr>
-                                        <th class="username" scope="row">
+                                        <th class="firstname">
                                             <button class="userselect" data-toggle="modal" data-target="#usermodal">
-                                                <%= user.username %>
+                                                <%= user.firstname %>
                                             </button>
-
                                         </th>
-                                        <td class="firstname">
-                                            <%= user.firstname %>
-                                        </td>
                                         <td class="lastname">
                                             <%= user.lastname %>
                                         </td>
@@ -226,6 +280,12 @@
                                         <td class="bio" style="padding:0px 0px">
                                             <%= user.bio %>
                                         </td>
+                                        <th class="username bio" style="padding:0px 0px" scope="row">
+                                            <button class="userselect" data-toggle="modal" data-target="#usermodal">
+                                                <%= user.username %>
+                                            </button>
+
+                                        </th>
                                     </tr>
                                     <%})%>
                             </tbody>
@@ -289,6 +349,120 @@
                 $("#usermodallabel").append(genderage);
             });
         });
+
+        $(function () {
+            // ON SELECTING ROW
+            $(".contact").click(function () {
+                //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
+                var a = "<%= firstmatchname %>";
+                var b = "<%= firstFirstName %>";
+                var c = "<%= firstLastName %>";
+                var d = "<%= firstAge %>";
+                var e = "<%= firstUniversity %>";
+                var f = "<%= firstGender %>";
+                var g = "<%= firstSmoker %>";
+                var h = "<%= firstPets %>";
+                var i = "<%= firstBudget %>";
+                var j = "<%= firstMaxdistance %>";
+
+                var p = "";
+                var name = "";
+                var genderage = "";
+
+                // CREATING DATA TO SHOW ON MODEL
+                name += b + " " + c;
+
+                genderage += f + " " + d;
+
+                p +=
+                    "<p id='a' name='Email' >Email: "
+                    + a + " </p>";
+
+                p +=
+                    "<p id='d' name='Age' >Age: "
+                    + d + " </p>";
+                p +=
+                    "<p id='e' name='University' >University: "
+                    + e + " </p>";
+                p +=
+                    "<p id='e' name='Smoking' >Smoking: "
+                    + g + " </p>";
+                p +=
+                    "<p id='e' name='Pets' >Pets: "
+                    + h + " </p>";
+                p +=
+                    "<p id='e' name='Budget' >Budget ($/m): "
+                    + i + " </p>";
+                p +=
+                    "<p id='e' name='Smoking' >Max. Distance (km): "
+                    + j + " </p>";
+                //CLEARING THE PREFILLED DATA
+                $("#divUSER2").empty();
+                $("#usermodalname2").empty();
+                $("#usermodallabel2").empty();
+                //WRITING THE DATA ON MODEL
+                $("#divUSER2").append(p);
+                $("#usermodalname2").append(name);
+                $("#usermodallabel2").append(genderage);
+            });
+        });
+
+        $(function () {
+            // ON SELECTING ROW
+            $(".contact").click(function () {
+                //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
+                var a = "<%= secondmatchname %>";
+                var b = "<%= secondFirstName %>";
+                var c = "<%= secondLastName %>";
+                var d = "<%= secondAge %>";
+                var e = "<%= secondUniversity %>";
+                var f = "<%= secondGender %>";
+                var g = "<%= secondSmoker %>";
+                var h = "<%= secondPets %>";
+                var i = "<%= secondBudget %>";
+                var j = "<%= secondMaxdistance %>";
+
+                var p = "";
+                var name = "";
+                var genderage = "";
+
+                // CREATING DATA TO SHOW ON MODEL
+                name += b + " " + c;
+
+                genderage += f + " " + d;
+
+                p +=
+                    "<p id='a' name='Email' >Email: "
+                    + a + " </p>";
+
+                p +=
+                    "<p id='d' name='Age' >Age: "
+                    + d + " </p>";
+                p +=
+                    "<p id='e' name='University' >University: "
+                    + e + " </p>";
+                p +=
+                    "<p id='e' name='Smoking' >Smoking: "
+                    + g + " </p>";
+                p +=
+                    "<p id='e' name='Pets' >Pets: "
+                    + h + " </p>";
+                p +=
+                    "<p id='e' name='Budget' >Budget ($/m): "
+                    + i + " </p>";
+                p +=
+                    "<p id='e' name='Smoking' >Max. Distance (km): "
+                    + j + " </p>";
+                //CLEARING THE PREFILLED DATA
+                $("#divUSER3").empty();
+                $("#usermodalname3").empty();
+                $("#usermodallabel3").empty();
+                //WRITING THE DATA ON MODEL
+                $("#divUSER3").append(p);
+                $("#usermodalname3").append(name);
+                $("#usermodallabel3").append(genderage);
+            });
+        });
     </script>
     <!-- Modal popup -->
     <div class="modal fade" id="usermodal" tabindex="-1" role="dialog">
@@ -304,6 +478,54 @@
                 <!-- MODEL BODY -->
                 <div class="modal-body">
                     <div class="USERclass" id="divUSER"></div>
+                    <div class="modal-footer">
+                        <!-- The close button in the bottom of the modal -->
+                        <button type="button" class="btn" data-dismiss="modal">
+                            Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact modal popup -->
+    <div class="modal fade" id="contactmodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- MODEL TITLE -->
+                    <h2 class="modal-title" id="usermodalname2">
+                    </h2>
+                    <h2 class="modal-title" id="usermodallabel2">
+                    </h2>
+                </div>
+                <!-- MODEL BODY -->
+                <div class="modal-body">
+                    <div class="USERclass" id="divUSER2"></div>
+                    <div class="modal-footer">
+                        <!-- The close button in the bottom of the modal -->
+                        <button type="button" class="btn" data-dismiss="modal">
+                            Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact modal popup 2-->
+    <div class="modal fade" id="contactmodal2" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- MODEL TITLE -->
+                    <h2 class="modal-title" id="usermodalname3">
+                    </h2>
+                    <h2 class="modal-title" id="usermodallabel3">
+                    </h2>
+                </div>
+                <!-- MODEL BODY -->
+                <div class="modal-body">
+                    <div class="USERclass" id="divUSER3"></div>
                     <div class="modal-footer">
                         <!-- The close button in the bottom of the modal -->
                         <button type="button" class="btn" data-dismiss="modal">

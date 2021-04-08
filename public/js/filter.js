@@ -9,7 +9,7 @@ $.fn.dataTable.ext.search.push(
     function (settings, data, dataIndex) {
         var min = parseFloat(age_range.slider("values", 0));
         var max = parseFloat(age_range.slider("values", 1));
-        var col = parseFloat(data[3]) || 0; // data[number] = column number
+        var col = parseFloat(data[2]) || 0; // data[number] = column number
         if ((isNaN(min) && isNaN(max)) ||
             (isNaN(min) && col <= max) ||
             (min <= col && isNaN(max)) ||
@@ -21,7 +21,7 @@ $.fn.dataTable.ext.search.push(
     function (settings, data, dataIndex) {
         var min = parseFloat(party_range.slider("values", 0));
         var max = parseFloat(party_range.slider("values", 1));
-        var col = parseFloat(data[8]) || 0; // data[number] = column number
+        var col = parseFloat(data[7]) || 0; // data[number] = column number
         if ((isNaN(min) && isNaN(max)) ||
             (isNaN(min) && col <= max) ||
             (min <= col && isNaN(max)) ||
@@ -33,7 +33,7 @@ $.fn.dataTable.ext.search.push(
     function (settings, data, dataIndex) {
         var min = parseFloat(clean_range.slider("values", 0));
         var max = parseFloat(clean_range.slider("values", 1));
-        var col = parseFloat(data[9]) || 0; // data[number] = column number
+        var col = parseFloat(data[8]) || 0; // data[number] = column number
         if ((isNaN(min) && isNaN(max)) ||
             (isNaN(min) && col <= max) ||
             (min <= col && isNaN(max)) ||
@@ -45,7 +45,7 @@ $.fn.dataTable.ext.search.push(
     function (settings, data, dataIndex) {
         var min = parseFloat(cooking_range.slider("values", 0));
         var max = parseFloat(cooking_range.slider("values", 1));
-        var col = parseFloat(data[10]) || 0; // data[number] = column number
+        var col = parseFloat(data[9]) || 0; // data[number] = column number
         if ((isNaN(min) && isNaN(max)) ||
             (isNaN(min) && col <= max) ||
             (min <= col && isNaN(max)) ||
@@ -57,7 +57,7 @@ $.fn.dataTable.ext.search.push(
     function (settings, data, dataIndex) {
         var min = parseFloat(budget_range.slider("values", 0));
         var max = parseFloat(budget_range.slider("values", 1));
-        var col = parseFloat(data[11]) || 0; // data[number] = column number
+        var col = parseFloat(data[10]) || 0; // data[number] = column number
         if ((isNaN(min) && isNaN(max)) ||
             (isNaN(min) && col <= max) ||
             (min <= col && isNaN(max)) ||
@@ -69,7 +69,7 @@ $.fn.dataTable.ext.search.push(
     function (settings, data, dataIndex) {
         var min = parseFloat(maxdistance_range.slider("values", 0));
         var max = parseFloat(maxdistance_range.slider("values", 1));
-        var col = parseFloat(data[12]) || 0; // data[number] = column number
+        var col = parseFloat(data[11]) || 0; // data[number] = column number
         if ((isNaN(min) && isNaN(max)) ||
             (isNaN(min) && col <= max) ||
             (min <= col && isNaN(max)) ||
@@ -195,7 +195,7 @@ $(document).ready(function () {
 
         "columnDefs": [
             {
-                "targets": [13],
+                "targets": [12, 13],
                 "orderable": false
             }
         ]

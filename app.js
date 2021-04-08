@@ -245,9 +245,42 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
         var firstmatch = (allscores[allscores.length - 2]).split(" ");
         var secondmatch = (allscores[allscores.length - 3]).split(" ");
 
+        for (let i = 0; i < dblength; i++) {
+
+            if(firstmatch[1] == (users[i].username)){
+                var firstBio = users[i].bio;
+                var firstFirstName = users[i].firstname;
+                var firstLastName = users[i].lastname;
+                var firstAge = users[i].age;
+                var firstCooking = users[i].cooking;
+                var firstCleanliness = users[i].cleanliness;
+                var firstPartying = users[i].partying;
+                var firstGender = users[i].gender;
+                var firstUniversity = users[i].university;
+                var firstSmoker = users[i].smoker;
+                var firstPets = users[i].pets;
+                var firstBudget = users[i].budget;
+                var firstMaxdistance = users[i].maxdistance;
+            }
+            if(secondmatch[1] == (users[i].username)){
+                var secondBio = users[i].bio;
+                var secondFirstName = users[i].firstname;
+                var secondLastName = users[i].lastname;
+                var secondAge = users[i].age;
+                var secondCooking = users[i].cooking;
+                var secondCleanliness = users[i].cleanliness;
+                var secondPartying = users[i].partying;
+                var secondGender = users[i].gender;
+                var secondUniversity = users[i].university;
+                var secondSmoker = users[i].smoker;
+                var secondPets = users[i].pets;
+                var secondBudget = users[i].budget;
+                var secondMaxdistance = users[i].maxdistance;
+            }
+
+        }
+
         //END OF CODE FOR MATCHING SCRIPT ------------------------------------------------------
-
-
 
         res.render("mainpage", {
             usersList: users,
@@ -256,6 +289,34 @@ app.get("/mainpage", isLoggedIn, (req, res) => {
             firstmatchscore: (Math.round(100*firstmatch[0])/100)*100,
             secondmatchname: secondmatch[1],
             secondmatchscore: (Math.round(100*secondmatch[0])/100)*100,
+
+            firstBio: firstBio,
+            firstFirstName: firstFirstName,
+            firstLastName: firstLastName,
+            firstAge: firstAge,
+            firstCooking: firstCooking,
+            firstCleanliness: firstCleanliness,
+            firstPartying: firstPartying,
+            firstGender: firstGender,
+            firstUniversity: firstUniversity,
+            firstSmoker: firstSmoker,
+            firstPets: firstPets,
+            firstBudget: firstBudget,
+            firstMaxdistance: firstMaxdistance,
+
+            secondBio: secondBio,
+            secondFirstName: secondFirstName,
+            secondLastName: secondLastName,
+            secondAge: secondAge,
+            secondCooking: secondCooking,
+            secondCleanliness: secondCleanliness,
+            secondPartying: secondPartying,
+            secondGender: secondGender,
+            secondUniversity: secondUniversity,
+            secondSmoker: secondSmoker,
+            secondPets: secondPets,
+            secondBudget: secondBudget,
+            secondMaxdistance: secondMaxdistance,
         })
     })
 

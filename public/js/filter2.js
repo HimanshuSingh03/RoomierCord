@@ -14,7 +14,7 @@ $(document).ready(function() {
         var yes = $('#gridDisplayYes')[0].checked;
         var no = $('#gridDisplayNo')[0].checked;
         var all = $('#gridDisplayAll')[0].checked;
-        var condition = String(data[6]); // check condition
+        var condition = String(data[5]); // check condition
         if (all) {
            toggleActive($('#gridDisplayAllLabel'));
            return true;
@@ -43,7 +43,7 @@ $(document).ready(function() {
         var yes = $('#gridDisplayYes2')[0].checked;
         var no = $('#gridDisplayNo2')[0].checked;
         var all = $('#gridDisplayAll2')[0].checked;
-        var condition = String(data[7]); // check condition
+        var condition = String(data[6]); // check condition
         if (all) {
            toggleActive($('#gridDisplayAllLabel2'));
            return true;
