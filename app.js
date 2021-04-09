@@ -87,7 +87,11 @@ app.post("/register", (req, res) => {
 
 
 app.get("/attributes", (req, res) => {
-    res.render("attributes");
+    res.render("attributes", {
+        firstname: tempfirstname,
+        lastname: templastname,
+        university: tempuniversity
+    })
 });
 app.post("/attributes", (req, res) => {
 
