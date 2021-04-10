@@ -129,11 +129,11 @@ nav ul li a:hover {
     padding-left: 9%;
 }
 
-#banner-about-us {
+#title-text {
     text-align: left;
     color: #fff;
     padding-top: 2%;
-    margin-right: 33%;
+    margin-left: 5%;
 }
 
 .promo-title {
@@ -174,7 +174,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
-#cardrow-about {
+#cardrow-about, #cardrow-attributes {
     width: 100%;
     display: flex;
     flex-direction: row;

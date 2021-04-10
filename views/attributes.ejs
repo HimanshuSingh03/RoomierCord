@@ -7,161 +7,164 @@
     <title>RoomierCord - Attributes</title>
 </head>
 
-<body class="others">
-    <div class="container-fluid m-0 p-0 full">
-        <div id="home-page" class="full-height">
-            <!-- navbar -->
-            <div class="navbar">
-                <img src="img/roomiercordYELLOW.png" alt="" class="logo" />
-                <nav>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#">How it Works</a></li>
-                        <li><a class="current" href="/aboutus">About Us</a></li>
-                        <li><a href="/login">Login</a></li>
-                    </ul>
-                </nav>
+<body class="others container-fluid m-0 p-0 full">
+    <div id="home-page" class="full-height">
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <!-- Logo at top left -->
+            <img src="img/roomiercordYELLOW.png" alt="" class="logo" />
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">How it Works</a></li>
+                    <li><a class="current" href="/aboutus">About Us</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </nav>
+            <!-- Sign up button at top right -->
+            <a href="/register">
+                <button type="button" class="button btn btn-lg sign-up">
+                    Sign Up
+                </button>
+            </a>
+        </div>
 
-                <a href="/register">
-                    <button type="button" class="button btn btn-lg sign-up">
-                        Sign Up
-                    </button>
-                </a>
-            </div>
-            <form action="/attributes" method="POST">
-                <div class="row" id="cardrow-about">
-                    <div class="card" id="attributes-card1">
-                        <div class="card-header">
-                            <h1 id="your-attributes">Your Information</h1>
-                        </div>
-                        <div class="card-body" id="card-about">
-                            <div><%=firstname %></div>
-                            <div><%=university %></div>
-                            <label for="gender">Gender</label>
-                            <input type="radio" id="male" name="gender" value="M" checked="checked">
-                            <label for="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="F">
-                            <label for="female">Female</label>
-                            <input type="radio" id="nonbin" name="gender" value="NB">
-                            <label for="female">Non-Binary</label><br>
-                            <div class="bio-container">
-                                <textarea placeholder="Bio - describe yourself here..." type="bio" id="bio" name="bio"
-                                    id="" cols="30" rows="9"></textarea>
-                            </div>
-
-                        </div>
+        <!-- Form element to collect all user inputs -->
+        <form action="/attributes" method="POST">
+            <!-- div to contain row of cards -->
+            <div class="row" id="cardrow-attributes">
+                <!-- First card (Your Information) -->
+                <div class="card" id="attributes-card1">
+                    <div class="card-header">
+                        <h1 id="your-attributes">Your Information</h1>
                     </div>
-                    <div class="card" id="attributes-card2">
-                        <div class="card-header">
-                            <h1 id="your-attributes">Your Attributes</h1>
+                    <div class="card-body" id="card-about">
+                        <!-- Displays current user's first name and university -->
+                        <div>
+                            <%=firstname %>
                         </div>
-                        <div class="card-body" id="card-about">
-
-                            <div class="all-sliders">
-                                <!-- Slider for Partying -->
-                                <div class="slidebox">
-                                    <label for="partying">Partying</label>
-                                    <div class="slidecontainer">
-                                        <input type="range" id="slider" name="partying" minlength="1" maxlength="10"
-                                            value="0" max="10" class="slider" mousemove="range(this.value)"
-                                            onChange="range(this.value)">
-                                        <div id="selector">
-                                            <div id="SelectValue"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slider for Cleanliness -->
-                                <div class="slidebox">
-                                    <label for="cleanliness">Cleanliness</label>
-                                    <div class="slidecontainer">
-                                        <input type="range" id="slider2" name="cleanliness" minlength="1" maxlength="10"
-                                            value="0" max="10" class="slider" mousemove="range(this.value)"
-                                            onChange="range(this.value)">
-                                        <div id="selector2">
-                                            <div id="SelectValue2"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slider for cooking -->
-                                <div class="slidebox">
-                                    <label for="cooking">Cooking</label>
-                                    <div class="slidecontainer">
-                                        <input type="range" id="slider3" name="cooking" minlength="1" maxlength="10"
-                                            value="0" max="10" class="slider" mousemove="range(this.value)"
-                                            onChange="range(this.value)">
-                                        <div id="selector3">
-                                            <div id="SelectValue3"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slider for max distance -->
-                            <div class="slidebox">
-                                <label for="maxdistance">Max. Distance from School (km)</label>
-                                <div class="slidecontainer">
-                                    <input type="range" id="slider5" name="maxdistance" minlength="1" maxlength="10"
-                                        value="0" max="25" min="0" class="slider" mousemove="range(this.value)"
-                                        onChange="range(this.value)">
-                                    <div id="selector5">
-                                        <div id="SelectValue5"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slider for age -->
-                            <div class="slidebox">
-                                <label for="age">Age</label>
-                                <div class="slidecontainer">
-                                    <input type="range" id="slider4" name="age" minlength="1" maxlength="10" value="18"
-                                        max="30" min="18" class="slider" mousemove="range(this.value)"
-                                        onChange="range(this.value)">
-                                    <div id="selector4">
-                                        <div id="SelectValue4"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <label for="smoker">Smoker?</label>
-                            <input type="radio" id="yes" name="smoker" value="Y" checked="checked">
-                            <label for="yes">Yes</label>
-                            <input type="radio" id="no" name="smoker" value="N">
-                            <label for="no">No</label><br>
-
-                            <label for="pets">Pets?</label>
-                            <input type="radio" id="yes" name="pets" value="Y" checked="checked">
-                            <label for="yes">Yes</label>
-                            <input type="radio" id="no" name="pets" value="N">
-                            <label for="no">No</label><br>
-
-                            <select class="select" id="budget" name="budget">
-                                <option disabled selected>Select your Maximum Budget/month</option>
-                                <option value="250">$250</option>
-                                <option value="500">$500</option>
-                                <option value="750">$750</option>
-                                <option value="1000">$1000</option>
-                                <option value="1250">$1250</option>
-                                <option value="1500">$1500</option>
-                            </select>
-                            <br><br>
-                            <button class="button btn btn-lg get-started">Save</button>
-
+                        <div>
+                            <%=university %>
                         </div>
+                        <!-- Radio buttons for gender -->
+                        <label for="gender">Gender</label>
+                        <input type="radio" id="male" name="gender" value="M" checked="checked">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="F">
+                        <label for="female">Female</label>
+                        <input type="radio" id="nonbin" name="gender" value="NB">
+                        <label for="female">Non-Binary</label><br>
+                        <!-- Textarea input for Bio -->
+                        <div class="bio-container">
+                            <textarea placeholder="Bio - describe yourself here..." type="bio" id="bio" name="bio" id=""
+                                cols="30" rows="9"></textarea>
+                        </div>
+
                     </div>
                 </div>
-            </form>
-        </div>
+                <!-- Second Card (Your Attributes) -->
+                <div class="card" id="attributes-card2">
+                    <div class="card-header">
+                        <h1 id="your-attributes">Your Attributes</h1>
+                    </div>
+                    <div class="card-body" id="card-about">
+
+                        <!-- Slider for Partying -->
+                        <div class="slidebox">
+                            <label for="partying">Partying</label>
+                            <div class="slidecontainer">
+                                <input type="range" id="slider" name="partying" minlength="1" maxlength="10" value="0"
+                                    max="10" class="slider" mousemove="range(this.value)" onChange="range(this.value)">
+                                <div id="selector">
+                                    <div id="SelectValue"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slider for Cleanliness -->
+                        <div class="slidebox">
+                            <label for="cleanliness">Cleanliness</label>
+                            <div class="slidecontainer">
+                                <input type="range" id="slider2" name="cleanliness" minlength="1" maxlength="10"
+                                    value="0" max="10" class="slider" mousemove="range(this.value)"
+                                    onChange="range(this.value)">
+                                <div id="selector2">
+                                    <div id="SelectValue2"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slider for Cooking -->
+                        <div class="slidebox">
+                            <label for="cooking">Cooking</label>
+                            <div class="slidecontainer">
+                                <input type="range" id="slider3" name="cooking" minlength="1" maxlength="10" value="0"
+                                    max="10" class="slider" mousemove="range(this.value)" onChange="range(this.value)">
+                                <div id="selector3">
+                                    <div id="SelectValue3"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slider for max distance -->
+                        <div class="slidebox">
+                            <label for="maxdistance">Max. Distance from School (km)</label>
+                            <div class="slidecontainer">
+                                <input type="range" id="slider5" name="maxdistance" minlength="1" maxlength="10"
+                                    value="0" max="25" min="0" class="slider" mousemove="range(this.value)"
+                                    onChange="range(this.value)">
+                                <div id="selector5">
+                                    <div id="SelectValue5"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slider for age -->
+                        <div class="slidebox">
+                            <label for="age">Age</label>
+                            <div class="slidecontainer">
+                                <input type="range" id="slider4" name="age" minlength="1" maxlength="10" value="18"
+                                    max="30" min="18" class="slider" mousemove="range(this.value)"
+                                    onChange="range(this.value)">
+                                <div id="selector4">
+                                    <div id="SelectValue4"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Radio buttons for Smoker? attribute -->
+                        <label for="smoker">Smoker?</label>
+                        <input type="radio" id="yes" name="smoker" value="Y" checked="checked">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="smoker" value="N">
+                        <label for="no">No</label><br>
+
+                        <!-- Radio buttons for Pets? attribute -->
+                        <label for="pets">Pets?</label>
+                        <input type="radio" id="yes" name="pets" value="Y" checked="checked">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="pets" value="N">
+                        <label for="no">No</label><br>
+
+                        <!-- Dropdown menu for Maximum budget -->
+                        <select class="select" id="budget" name="budget">
+                            <option disabled selected>Select your Maximum Budget/month</option>
+                            <option value="250">$250</option>
+                            <option value="500">$500</option>
+                            <option value="750">$750</option>
+                            <option value="1000">$1000</option>
+                            <option value="1250">$1250</option>
+                            <option value="1500">$1500</option>
+                        </select>
+                        <br><br>
+                        <!-- Save Button, submits form -->
+                        <button class="button btn btn-lg get-started">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-    <!-- navbar -->
 
-
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">login</a></li>
-        <li><a href="/logout">Logout</a></li>
-    </ul>
-
+    <!-- Calls slider.js for slider javascript code-->
     <script src="js/slider.js"></script>
 </body>

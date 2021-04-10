@@ -6,33 +6,41 @@
   <link rel="stylesheet" href="css/main.css">
   <title>RoomierCord - Home</title>
 </head>
+
 <body id="home">
   <div class="container-fluid m-0 p-0 full">
+    <!-- Home page Section -->
     <div id="home-page" class="full-height">
       <!-- Navigation bar -->
       <div class="navbar">
+        <!-- Logo at top left -->
         <img src="img/roomiercordYELLOW.png" alt="" class="logo" />
         <nav>
           <ul>
             <li><a class="current" href="/">Home</a></li>
-            <li><a class = "HIW-button" href="#">How it Works</a></li>
+            <li><a class="HIW-button" href="#">How it Works</a></li>
             <li><a href="/aboutus">About Us</a></li>
             <li><a href="/login">Login</a></li>
           </ul>
         </nav>
-  
+        <!-- Sign Up button at top right -->
         <a href="/register">
           <button type="button" class="button btn btn-lg sign-up">
             Sign Up
           </button>
         </a>
       </div>
+
+      <!-- First section of Home Page (Slogan, description, image, Get Started button) -->
       <section id="banner">
         <div class="container">
           <div class="row">
+            <!-- Column for slogan, description, Get Started button -->
             <div class="col-md-6">
+              <!-- Slogan -->
               <h1 class="promo-title">Finding roommates <br />made easy.</h1>
               <br />
+              <!-- Website description -->
               <p>
                 RoomierCord eases the stressful transition to university by
                 streamlining your roommate search. The tool is dedicated
@@ -40,12 +48,14 @@
                 and features catered to you.
               </p>
               <br />
+              <!-- Get Started button -->
               <a href="/register">
                 <button type="button" class="button btn btn-lg get-started">
                   Get Started
                 </button>
-            </a>
+              </a>
             </div>
+            <!-- Image of roomates -->
             <div class="col-md-6">
               <img src="img/roomieseditHIGHQUALITY.png" alt="" id="big-img" class="img-fluid" />
             </div>
@@ -53,45 +63,56 @@
         </div>
       </section>
     </div>
+
     <!-- How It Works section -->
     <div id="how-it-works" class="full-height">
       <section>
+        <!-- How it Works headline title -->
         <h1 class="HIW-title">How does RoomierCord work?</h1>
-  
+
+        <!-- First row of cards (Sign up, Fill in your Profile, edit anytime) -->
         <div class="row" id="cardrow">
+          <!-- First card (Sign Up) -->
           <div class="card" id="card1">
             <div class="card-header">
               <h1>Sign Up</h1>
             </div>
             <div class="card-body">
               <p>Sign up for an account using your email.</p>
+              <!-- Get Started button -->
               <a href="/register">
                 <button type="button" class="button btn btn-lg get-started">
                   Get Started
                 </button>
-            </a>
+              </a>
             </div>
           </div>
-  
+          <!-- Second card (Fill in your Profile, edit anytime) -->
           <div class="card" id="card2">
             <div class="card-header">
               <h1>Fill in your Profile, edit anytime</h1>
             </div>
             <div class="card-body">
+              <!-- Image of edit attributes -->
               <img src="img/HIWprofile.png" class="card-img-bottom" alt="" />
             </div>
           </div>
         </div>
+
+        <!-- Second row of cards (RoomierCord automatically matches you..., If you're not satisfied...) -->
         <div class="row" id="cardrow">
+
+          <!-- Roomier automatically matches... card -->
           <div class="card" id="card3">
             <div class="card-header">
               <h1>RoomierCord automatically matches you with 2 roommates</h1>
             </div>
             <div class="card-body">
+              <!-- Image of matching card -->
               <img src="img/HIWmatching.png" class="card-img-bottom" alt="" />
             </div>
           </div>
-  
+          <!-- If you're not satisfied card -->
           <div class="card" id="card4">
             <div class="card-header">
               <h1>
@@ -99,6 +120,7 @@
               </h1>
             </div>
             <div class="card-body">
+              <!-- Users table image -->
               <img src="img/HIWtable.png" class="card-img-bottom" alt="" />
             </div>
           </div>
@@ -106,10 +128,11 @@
       </section>
       <div class="p-4"></div>
     </div>
-    <script src="js/main.js"></script>
+
+    <!-- Calls for scroll.js for scrolling down function
+    (when you press How it Works in navbar, scrolls you down the page)-->
+    <script src="js/scroll.js"></script>
   </div>
 </body>
-
-
 
 </html>
