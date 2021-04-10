@@ -2,13 +2,11 @@
 
 <head>
 
+    <!-- Links to bootstrap, jquery (datatables) dependencies -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-        </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
         </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
@@ -16,22 +14,26 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
         </script>
-
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://yadcf-showcase.appspot.com/resources/js/jquery.dataTables.yadcf.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- Links to filter.js and filter2.js to run filter sliders/buttons javascript code-->
     <script src="js/filter.js"></script>
     <script src="js/filter2.js"></script>
 
+    <!-- Links to jquery (datatables) dependencies -->
     <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" />
     <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+    <!-- Links to bootstrap dependency and mainpage.css for CSS styling -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/mainpage.css">
 
     <meta charset=utf-8 />
-    <title>RoomierCord - Main Page</title>
+    <title>RoomierCord - Find a Roommate</title>
 </head>
 
 <body class="others">
@@ -39,6 +41,7 @@
         <div id="home-page" class="full-height">
             <!-- Navigation bar -->
             <div class="navbar">
+                <!-- Logo at top left -->
                 <img src="img/roomiercordYELLOW.png" alt="" class="logo" />
                 <nav>
                     <ul>
@@ -46,92 +49,109 @@
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
-
+                <!-- Profile button at top right -->
                 <a href="/editattributes">
                     <button type="button" class="button btn btn-lg sign-up">
                         Profile
                     </button>
                 </a>
             </div>
-
-
+            <!-- Showing results for *university name* headline/title -->
             <div class="showing-results">
                 <h3 class="promo-title">
                     Showing Results for:
                 </h3>
             </div>
+            <!-- University name -->
             <div class="uni-name">
                 <h1 class="promo-title" id="universityname">
                     <%= universityname %>
                 </h1>
-
             </div>
+
+            <!-- text for "Here's who we think would fit you best:""-->
             <h2 id="fit-best">Here's who we think would fit you best:</h2>
+
+            <!-- Row to contain matching cards -->
             <div class="row" id="cardrow">
+                <!-- First matching card -->
                 <div class="card w-25" id="card1">
                     <div class="card-header">
                         <div class="row">
+                            <!-- Name of first match -->
                             <h1 class="card-name">
                                 <%= firstFirstName %>&nbsp;<%= firstLastName %>
                             </h1>
+                            <!-- % match for first match -->
                             <h1 style="float:left" class="matchscore">
                                 <%= firstmatchscore %>%
                             </h1>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="card-body" id="card-about">
-                            <%= firstBio %>
-                        </div>
+                    <!-- Bio of first match -->
+                    <div class="card-body" id="card-about">
+                        <%= firstBio %>
                     </div>
+                    <!-- Attributes and contact button for first matching card -->
                     <div class="row" id="logo-row">
+                        <!-- Logo and value for first match's cooking attribute-->
                         <div class="col-sm-1"><img src="img/chef.png" alt="" class="attribute-logos" /></div>
                         <div class="col-sm-1 attribute-text">
                             <%= firstCooking %>
                         </div>
+                        <!-- Logo and value for first match's cleanliness attribute-->
                         <div class="col-sm-1"><img src="img/spraycan.png" alt="" class="attribute-logos" /></div>
                         <div class="col-sm-1 attribute-text">
                             <%= firstCleanliness %>
                         </div>
+                        <!-- Logo and value for first match's partying attribute-->
                         <div class="col-sm-1"><img src="img/wineglasses.png" alt="" class="attribute-logos" /></div>
                         <div class="col-sm-1 attribute-text">
                             <%= firstPartying %>
                         </div>
+                        <!-- Contact button-->
                         <div class="col-sm-3"> <button data-toggle="modal" data-target="#contactmodal" type="button"
                                 class="button btn btn-lg contact">
                                 Contact
                             </button></div>
                     </div>
                 </div>
+                <!-- Second matching card -->
                 <div class="card w-25" id="card1">
                     <div class="card-header">
                         <div class="row">
+                            <!-- Name of second match -->
                             <h1 class="card-name">
                                 <%= secondFirstName %>&nbsp;<%= secondLastName %>
                             </h1>
+                            <!-- % match for second match -->
                             <h1 style="float:left" class="matchscore">
                                 <%= secondmatchscore %>%
                             </h1>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="card-body" id="card-about">
-                            <%= secondBio %>
-                        </div>
+                    <!-- Bio of second match -->
+                    <div class="card-body" id="card-about">
+                        <%= secondBio %>
                     </div>
+                    <!-- Attributes and contact button for second matching card -->
                     <div class="row" id="logo-row">
+                        <!-- Logo and value for second match's cooking attribute -->
                         <div class="col-sm-1"><img src="img/chef.png" alt="" class="attribute-logos" /></div>
                         <div class="col-sm-1 attribute-text">
                             <%= secondCooking %>
                         </div>
+                        <!-- Logo and value for second match's cleanliness attribute -->
                         <div class="col-sm-1"><img src="img/spraycan.png" alt="" class="attribute-logos" /></div>
                         <div class="col-sm-1 attribute-text">
                             <%= secondCleanliness %>
                         </div>
+                        <!-- Logo and value for second match's partying attribute -->
                         <div class="col-sm-1"><img src="img/wineglasses.png" alt="" class="attribute-logos" /></div>
                         <div class="col-sm-1 attribute-text">
                             <%= secondPartying %>
                         </div>
+                        <!-- Contact button -->
                         <div class="col-sm-3"> <button data-toggle="modal" data-target="#contactmodal2" type="button"
                                 class="button btn btn-lg contact">
                                 Contact
@@ -142,7 +162,10 @@
 
             <h2 id="scroll-down">Scroll down to browse more users</h2>
 
+            <!-- div to contain filters and datatable -->
             <div class="row" id="filters-and-table">
+
+                <!-- Filters -->
                 <div class="col-md-2" id="all-filters">
 
                     <!-- range slider filters -->
@@ -151,22 +174,27 @@
                         <label>Age:&nbsp;</label><input type="text" id="live_range_age" readonly class="filter-numbers">
                         <div id="age_range" style="width:80%"></div><br>
 
+                        <!-- partying range slider -->
                         <label>Partying:&nbsp;</label><input type="text" id="live_range_party" readonly
                             class="filter-numbers">
                         <div id="party_range" style="width:80%"></div><br>
 
+                        <!-- cleanliness range slider -->
                         <label>Cleanliness:&nbsp;</label><input type="text" id="live_range_clean" readonly
                             class="filter-numbers">
                         <div id="val_range_clean" style="width:80%"></div><br>
 
+                        <!-- cooking range slider -->
                         <label>Cooking:&nbsp;</label><input type="text" id="live_range_cooking" readonly
                             class="filter-numbers">
                         <div id="cooking_range" style="width:80%"></div><br>
 
+                        <!-- budget range slider -->
                         <label>Budget ($/m):&nbsp;</label><input type="text" id="live_range_budget" readonly
                             class="filter-numbers">
                         <div id="budget_range" style="width:80%"></div><br>
 
+                        <!-- max distance range slider -->
                         <label>Max. Distance (km):&nbsp;</label><input type="text" id="live_range_maxdistance" readonly
                             class="filter-numbers">
                         <div id="maxdistance_range" style="width:80%"></div>
@@ -210,15 +238,17 @@
                             No
                         </label>
                     </div>
-
                 </div>
-                <!-- data table -->
+
+                <!-- div element to contain datatable -->
                 <div class="col table-div">
                     <div class="table-responsive">
+                        <!-- Datatable -->
                         <table id="sort_table" class="display nowrap datatable cell-border" width="100%">
+
+                            <!-- table headings -->
                             <thead>
                                 <tr>
-
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Age</th>
@@ -231,14 +261,19 @@
                                     <th scope="col">Cooking</th>
                                     <th scope="col">Budget ($/m)</th>
                                     <th scope="col">Max. Distance (km)</th>
+                                    <!-- Padding 0px to keep these columns very small,
+                                    as they are needed in the table for the modal popups
+                                    to pull from, but shouldn't be displayed. -->
                                     <th scope="col" class="bio" style="padding:0px 0px">Bio</th>
                                     <th scope="col" class="usernamehidden" style="padding:0px 0px">Username</th>
                                 </tr>
                             </thead>
-
+                            <!-- Body of table -->
                             <tbody>
+                                <!-- iterates through list of users, places each attribute in the correct column -->
                                 <%usersList.forEach(user=> {%>
                                     <tr>
+                                        <!-- clicking on user's name toggles to modal popup -->
                                         <th class="firstname">
                                             <button class="userselect" data-toggle="modal" data-target="#usermodal">
                                                 <%= user.firstname %>
@@ -293,16 +328,18 @@
                     </div>
                 </div>
             </div>
+            <!-- adds spacing at the bottom of the page -->
             <div class="" id="spacing"></div>
         </div>
     </div>
-    
 
+    <!-- Javascript for modal popups variables-->
     <script>
+        // Modal popup variables for clicking on a user's name in the datatable
         $(function () {
-            // ON SELECTING ROW
+            // on clicking on user's name (wrapped by button element)
             $(".userselect").click(function () {
-                //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
+                //finding elements of rows and storing them as variables
                 var a =
                     $(this).parents("tr").find(".username").text();
                 var b =
@@ -317,16 +354,19 @@
                     $(this).parents("tr").find(".gender").text();
                 var bio =
                     $(this).parents("tr").find(".bio").text();
-
                 var p = "";
                 var name = "";
                 var genderage = "";
 
-                // CREATING DATA TO SHOW ON MODEL
+                // creating data to show on modal popup
+
+                // combining first and last name into name
                 name += b + " " + c;
 
+                //combining gender and age to display together
                 genderage += f + " " + d;
 
+                //combining email, age, university and bio into "p" to display together
                 p +=
                     "<p id='a' name='Email' >Email: "
                     + a + " </p>";
@@ -341,21 +381,24 @@
                     "<p id='e' name='University'>Bio: "
                     + bio + " </p>";
 
-                //CLEARING THE PREFILLED DATA
+                //clearing the prefilled data
                 $("#divUSER").empty();
                 $("#usermodalname").empty();
                 $("#usermodallabel").empty();
-                //WRITING THE DATA ON MODEL
+
+                //appending the data to the modal
                 $("#divUSER").append(p);
                 $("#usermodalname").append(name);
                 $("#usermodallabel").append(genderage);
             });
         });
 
+        // Modal popup variables for clicking on contact button in 1st matching card
         $(function () {
-            // ON SELECTING ROW
+            // on clicking contact button
             $(".contact").click(function () {
-                //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
+
+                //assigning each of the first matched user's attributes to a variable
                 var a = "<%= firstmatchname %>";
                 var b = "<%= firstFirstName %>";
                 var c = "<%= firstLastName %>";
@@ -371,11 +414,15 @@
                 var name = "";
                 var genderage = "";
 
-                // CREATING DATA TO SHOW ON MODEL
+                // creating data to show on modal popup
+
+                // combining first and last name into name
                 name += b + " " + c;
 
+                //combining gender and age to display together
                 genderage += f + " " + d;
 
+                //combining all other user attributes together
                 p +=
                     "<p id='a' name='Email' >Email: "
                     + a + " </p>";
@@ -398,21 +445,24 @@
                 p +=
                     "<p id='e' name='Smoking' >Max. Distance (km): "
                     + j + " </p>";
-                //CLEARING THE PREFILLED DATA
+                //clearing the prefilled data
                 $("#divUSER2").empty();
                 $("#usermodalname2").empty();
                 $("#usermodallabel2").empty();
-                //WRITING THE DATA ON MODEL
+
+                //appending the data to the modal
                 $("#divUSER2").append(p);
                 $("#usermodalname2").append(name);
                 $("#usermodallabel2").append(genderage);
             });
         });
 
+        // Modal popup variables for clicking on contact button in 2nd matching card
         $(function () {
-            // ON SELECTING ROW
+            // on clicking contact button
             $(".contact").click(function () {
-                //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
+
+                //assigning each of the second matched user's attributes to a variable
                 var a = "<%= secondmatchname %>";
                 var b = "<%= secondFirstName %>";
                 var c = "<%= secondLastName %>";
@@ -428,11 +478,15 @@
                 var name = "";
                 var genderage = "";
 
-                // CREATING DATA TO SHOW ON MODEL
+                // creating data to show on modal popup
+
+                // combining first and last name into name
                 name += b + " " + c;
 
+                //combining gender and age to display together
                 genderage += f + " " + d;
 
+                //combining all other user attributes together
                 p +=
                     "<p id='a' name='Email' >Email: "
                     + a + " </p>";
@@ -455,33 +509,35 @@
                 p +=
                     "<p id='e' name='Smoking' >Max. Distance (km): "
                     + j + " </p>";
-                //CLEARING THE PREFILLED DATA
+                //clearing the prefilled data
                 $("#divUSER3").empty();
                 $("#usermodalname3").empty();
                 $("#usermodallabel3").empty();
-                //WRITING THE DATA ON MODEL
+
+                //appending the data to the modal
                 $("#divUSER3").append(p);
                 $("#usermodalname3").append(name);
                 $("#usermodallabel3").append(genderage);
             });
         });
     </script>
-    <!-- Modal popup -->
+
+    <!-- Modal popup for clicking on user's name in datatable-->
     <div class="modal fade" id="usermodal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <!-- MODEL TITLE -->
+                    <!-- title of modal (first name, last name, gender and age) -->
                     <h2 class="modal-title" id="usermodalname">
                     </h2>
                     <h2 class="modal-title" id="usermodallabel">
                     </h2>
                 </div>
-                <!-- MODEL BODY -->
+                <!-- body of modal -->
                 <div class="modal-body">
                     <div class="USERclass" id="divUSER"></div>
                     <div class="modal-footer">
-                        <!-- The close button in the bottom of the modal -->
+                        <!-- close button at bottom of the modal -->
                         <button type="button" class="btn" data-dismiss="modal">
                             Close</button>
                     </div>
@@ -490,22 +546,22 @@
         </div>
     </div>
 
-    <!-- Contact modal popup -->
+    <!-- Model popup for "contact" button for first matched user card -->
     <div class="modal fade" id="contactmodal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <!-- MODEL TITLE -->
+                    <!-- title of modal (first name, last name, gender and age) -->
                     <h2 class="modal-title" id="usermodalname2">
                     </h2>
                     <h2 class="modal-title" id="usermodallabel2">
                     </h2>
                 </div>
-                <!-- MODEL BODY -->
+                <!-- body of modal -->
                 <div class="modal-body">
                     <div class="USERclass" id="divUSER2"></div>
                     <div class="modal-footer">
-                        <!-- The close button in the bottom of the modal -->
+                        <!-- close button at bottom of the modal -->
                         <button type="button" class="btn" data-dismiss="modal">
                             Close</button>
                     </div>
@@ -514,22 +570,22 @@
         </div>
     </div>
 
-    <!-- Contact modal popup 2-->
+    <!-- Model popup for "contact" button for second matched user card -->
     <div class="modal fade" id="contactmodal2" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <!-- MODEL TITLE -->
+                    <!-- title of modal (first name, last name, gender and age) -->
                     <h2 class="modal-title" id="usermodalname3">
                     </h2>
                     <h2 class="modal-title" id="usermodallabel3">
                     </h2>
                 </div>
-                <!-- MODEL BODY -->
+                <!-- body of modal -->
                 <div class="modal-body">
                     <div class="USERclass" id="divUSER3"></div>
                     <div class="modal-footer">
-                        <!-- The close button in the bottom of the modal -->
+                        <!-- close button at bottom of the modal -->
                         <button type="button" class="btn" data-dismiss="modal">
                             Close</button>
                     </div>
