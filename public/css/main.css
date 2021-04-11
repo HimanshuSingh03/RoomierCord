@@ -1,3 +1,5 @@
+/* Styling for all pages except Find a Roommate */
+
 * {
     margin: 0;
     padding: 0;
@@ -119,7 +121,7 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-/* next 2 rule sets: styling for current link */
+/* next 2 rule sets: styling for current page link */
 .current {
     color: #ff9100;
 }
