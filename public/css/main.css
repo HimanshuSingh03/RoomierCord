@@ -3,6 +3,7 @@
     padding: 0;
 }
 
+/* background for home page */
 #home #home-page {
     background-image: url("../img/gradient8.png");
     background-position: bottom;
@@ -10,6 +11,7 @@
     box-sizing: border-box;
 }
 
+/* background for other pages */
 .others #home-page {
     background-image: url("../img/gradient9.png");
     background-position: bottom;
@@ -17,6 +19,7 @@
     box-sizing: border-box;
 }
 
+/* university campus image in background */
 .full {
     background-image: url("../img/uWaterlooCampus.jpg");
     background-position: center;
@@ -27,10 +30,12 @@
     background-size: cover;
 }
 
+/* make content take full height of page */
 .full-height {
     min-height: 100vh;
 }
 
+/* navigation bar styling */
 .navbar {
     height: 12%;
     display: flex;
@@ -39,12 +44,14 @@
     padding-right: 3%;
 }
 
+/* logo styling */
 .logo {
     width: 20%;
     height: 20%;
     margin-top: 0.5%;
 }
 
+/* styling of buttons */
 .btn {
     background-color: #ff9100;
     color: white;
@@ -52,6 +59,7 @@
     font-weight: 400;
 }
 
+/* sign up button styling */
 .sign-up {
     margin-left: 40px;
     margin-top: 0%;
@@ -67,6 +75,7 @@
     flex-basis: 50%;
 }
 
+/* next 3 rule sets: styling for elements of navbar*/
 nav {
     flex: 1;
     text-align: right;
@@ -88,6 +97,7 @@ nav ul li a {
     transition: all ease-in-out 250ms;
 }
 
+/* next 3 rule sets: animation for orange line when you hover over a link*/
 nav ul li a:after {
     content: "";
     position: absolute;
@@ -99,6 +109,7 @@ nav ul li a:after {
     transition: all ease-in-out 250ms;
 }
 
+
 nav ul li a:hover:after {
     width: 2%;
 }
@@ -108,6 +119,7 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
+/* next 2 rule sets: styling for current link */
 .current {
     color: #ff9100;
 }
@@ -129,6 +141,7 @@ nav ul li a:hover {
     padding-left: 9%;
 }
 
+/* next 2 rule sets: styling for headline text */
 #title-text {
     text-align: left;
     color: #fff;
@@ -146,6 +159,7 @@ nav ul li a:hover {
     align-content: flex-start;
 }
 
+/* next 2 rule sets: styling for how it works section of home page */
 #how-it-works {
     background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84));
 }
@@ -159,6 +173,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
+/* next 16 rule sets: styling for cards */
 .card {
     margin-bottom: 50px;
     border-radius: 10px;
@@ -174,6 +189,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
+/* specific styling for rows of cards in about us and attributes pages */
 #cardrow-about, #cardrow-attributes {
     width: 100%;
     display: flex;
@@ -200,6 +216,7 @@ nav ul li a:hover {
     opacity: 1;
 }
 
+/* styling for cards in Contact Us section */
 .contact-cards {
     margin-top: 5%;
 }
@@ -216,6 +233,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
+/* next 4 rule sets: specific styling for each card in Home Page - How it works section */
 #card1 {
     margin-left: 5%;
 }
@@ -235,6 +253,7 @@ nav ul li a:hover {
     height: auto;
 }
 
+/* next 2 rule sets: styling for terms of service card */
 .tos {
     background: dimgray 0% 0% no-repeat padding-box !important;
 }
@@ -248,20 +267,21 @@ nav ul li a:hover {
     font-size: 120%;
 }
 
-#bottom-space {
-    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84));
-}
-
 @media screen and (max-width: 1000px) {
     .card {
         width: 40%;
     }
 }
 
+#bottom-space {
+    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84));
+}
+
 input {
     text-align: center;
 }
 
+/* next 18 rule sets: styling for login and sign up boxes*/
 .loginbox {
     position: absolute;
     top: 50%;
@@ -308,17 +328,6 @@ form .txt_field {
     color: rgb(167, 167, 167);
     transform: translateY(-10%);
     font-size: 16px;
-}
-
-.pass {
-    margin: -5px 0 20px 5px;
-    color: gray;
-    cursor: pointer;
-    text-align: center;
-}
-
-.pass:hover {
-    text-decoration: underline;
 }
 
 input[type="submit"] {
@@ -395,6 +404,7 @@ input[type="submit"]:hover {
     color: dimgray;
 }
 
+/* next 5 rule sets: styling of range sliders for Attributes and Edit Attributes pages */
 .slidebox {
     width: 100%;
     display: flex;
@@ -424,25 +434,13 @@ input[type="submit"]:hover {
     position: relative;
 }
 
-#SelectValue {
+#SelectValue, #SelectValue2, #SelectValue3 {
     position: absolute;
     top: 0;
     text-align: center;
 }
 
-#SelectValue2 {
-    position: absolute;
-    top: 0;
-    text-align: center;
-}
-
-#SelectValue3 {
-    position: absolute;
-    top: 0;
-    text-align: center;
-}
-
-/* Edit attributes styling */
+/* next 7 rule sets: Edit attributes styling */
 
 #your-attributes {
     font-weight: bold;
