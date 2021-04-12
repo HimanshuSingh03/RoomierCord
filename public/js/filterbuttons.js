@@ -24,7 +24,7 @@ $(document).ready(function () {
             return true; //returns true if All is checked
          } else if (yes) {
             toggleActive($('#gridDisplayYesLabel'));
-            return ("Y" == smoking);
+            return ("Y" == smoking); //returns true if value matches selected button, false if it does not
          } else if (no) {
             toggleActive($('#gridDisplayNoLabel'));
             return ("N" == smoking);
